@@ -36,6 +36,8 @@ drop table PARTICIPATIONS cascade constraints;
 
 drop table ORGANISATEURS cascade constraints;
 
+drop table BUREAUX cascade constraints;
+
 
 
 -- ============================================================
@@ -160,8 +162,7 @@ create table BUREAUX
     ROLE_MEMBRE                     CHAR(25)               not null,
     constraint pk_bureaux  primary key (ID_ASSOCIATION_MEMBRE, ID_ADHERENT_MEMBRE),
     constraint fk1_bureaux   foreign key (ID_ASSOCIATION_MEMBRE) references ASSOCIATIONS (ID_ASSOCIATION),
-    constraint fk2_bureaux   foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
-    
+    constraint fk2_bureaux   foreign key (ID_ADHERENT_MEMBRE) references ADHERENTS (ID_ADHERENT) 
 );
 
 
@@ -172,6 +173,8 @@ create table BUREAUX
 create table CONTENUS
 (
     ID_CONTENU                      NUMBER(3)              not null,
+    DATE_PUBLICATION_CONTENU        DATE                   not null,
+    TITRE_CONTENU                   CHAR(60)               not null,
     constraint pk_contenus primary key (ID_CONTENU)
 );
 -- ============================================================
@@ -196,14 +199,13 @@ create table COMMENTAIRES
 create table NEWS
 (
     ID_NEWS                         NUMBER(3)              not null,
-    ID_AUTEUR                       NUMBER(3)              not null,
-    TITRE_NEWS                      CHAR(60)               not null,
+    ID_ASSOCIATION_MEMBRE_NEWS      NUMBER(3)              not null,
+    ID_ADHERENT_MEMBRE_NEWS         NUMBER(3)              not null,
     TEXTE_NEWS                      CHAR(255)              not null,
-    DATE_PUBLICATION_NEWS           DATE                   not null,
     -- TODO : Ajouter une contrainte pour empêcher un évènement d'être un commentaire
-    constraint pk_news primary key (ID_NEWS)                       ,
+    constraint pk_news primary key (ID_NEWS),
     constraint fk1_news foreign key (ID_NEWS) references CONTENUS (ID_CONTENU),
-    constraint fk2_news foreign key (ID_AUTEUR) references ADHERENTS (ID_ADHERENT)
+    constraint fk2_news foreign key (ID_ASSOCIATION_MEMBRE_NEWS, ID_ADHERENT_MEMBRE_NEWS) references BUREAUX(ID_ASSOCIATION_MEMBRE, ID_ADHERENT_MEMBRE)
 );
 
 
@@ -213,10 +215,9 @@ create table NEWS
 create table EVENEMENTS
 (
     ID_EVENEMENT                    NUMBER(3)              not null,
+    ID_ASSOCIATION_HOTE             NUMBER(3)              not null,
     LIEU_EVENEMENT                  CHAR(40)               not null,
-    TITRE_EVENEMENT                 CHAR(60)               not null,
     DESCRIPTION_EVENEMENT           CHAR(255)              not null,
-    DATE_CREATION_EVENEMENT         DATE                   not null,
     COUT_EVENEMENT                  NUMBER(4)              not null,
     TARIF_STANDARD                  NUMBER(3)              not null,
     TARIF_ADHERENT                  NUMBER(3)              not null,
@@ -227,7 +228,8 @@ create table EVENEMENTS
     -- TODO : Ajouter une contrainte pour empêcher une news d'être un évènement
     constraint pk_evenements primary key (ID_EVENEMENT)            ,
     constraint fk1_evenements foreign key (ID_EVENEMENT) references CONTENUS (ID_CONTENU),
-    constraint fk2_evenements foreign key (LIEU_EVENEMENT) references LIEUX (NOM_LIEU)
+    constraint fk2_evenements foreign key (LIEU_EVENEMENT) references LIEUX (NOM_LIEU),
+    constraint fk3_evenements foreign key (ID_ASSOCIATION_HOTE ) references ASSOCIATIONS (ID_ASSOCIATION)
 );
 -- ============================================================
 --   Table : PARTICIPATIONS
