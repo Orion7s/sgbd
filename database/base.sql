@@ -26,6 +26,15 @@ drop table NEWS cascade constraints;
 
 drop table COMMENTAIRES cascade constraints;
 
+drop table PERSONNES cascade constraints;
+
+drop table LIEUX cascade constraints;
+
+drop table EVENEMENTS cascade constraints;
+
+drop table PARTICIPATIONS cascade constraints;
+
+drop table ORGANISATEURS cascade constraints;
 
 -- ============================================================
 --   Table : ASSOCIATIONS                                            
@@ -130,7 +139,7 @@ create table FILIERES
     constraint pk_filieres primary key (NOM_FILIERE)
 );
 alter table ADHERENTS
-    add constraint fk_adherents foreign key (FILIERE_ADHERENT)
+    add constraint fk2_adherents foreign key (FILIERE_ADHERENT)
        references FILIERES (NOM_FILIERE);
 
 
@@ -147,15 +156,15 @@ create table CONTENUS
 -- ============================================================
 create table NEWS
 (
-    ID_CONTENU                      NUMBER(3)              not null,
-    ID_AUTEUR                       NUMBER(3)                not null,
+    ID_NEWS                      NUMBER(3)              not null,
+    ID_AUTEUR                       NUMBER(3)              not null,
     TITRE_NEWS                      CHAR(60)               not null,
     TEXTE_NEWS                      CHAR(255)              not null,
     DATE_PUBLICATION_NEWS           DATE                   not null,
-    constraint pk_news primary key (ID_CONTENU)
+    constraint pk_news primary key (ID_NEWS)
 );
 alter table NEWS
-    add constraint fk1_news foreign key (ID_CONTENU)
+    add constraint fk1_news foreign key (ID_NEWS)
        references CONTENUS (ID_CONTENU);
 alter table NEWS
     add constraint fk2_news foreign key (ID_AUTEUR)
@@ -170,7 +179,6 @@ create table COMMENTAIRES
     ID_CONTENU_COMMENTE             NUMBER(3)              not null,
     DATE_PUBLICATION_COMENTAIRE     DATE                   not null,
     TEXTE_COMMENTAIRE               CHAR(255)              not null,
-    -- Peut-être peut on faire une clé primaire à partir du couple (DATE_PUBLICATION_COMENTAIRE, ID_ADHERENT_COMMENTANT)
     constraint pk_commentaire primary key (ID_COMMENTAIRE) 
 );
 alter table COMMENTAIRES
@@ -179,3 +187,82 @@ alter table COMMENTAIRES
 alter table COMMENTAIRES
     add constraint fk2_commentaires foreign key (ID_CONTENU_COMMENTE)
        references CONTENUS (ID_CONTENU);
+-- ============================================================
+--   Table : PERSONNES                                       
+-- ============================================================
+create table PERSONNES
+(
+    ID_PERSONNE                     NUMBER(3)              not null,
+    NOM_PERSONNE                    CHAR(60)               not null,
+    PRENOM_PERSONNE                 CHAR(255)              not null,
+    constraint pk_personnes primary key (ID_PERSONNE)
+);
+alter table ADHERENTS
+    add constraint fk1_adherents foreign key (ID_ADHERENT)
+       references PERSONNES (ID_PERSONNE);
+-- ============================================================
+--   Table : LIEUX                                       
+-- ============================================================
+create table LIEUX
+(
+    NOM_LIEU                        CHAR(40)               not null,
+    constraint pk_lieux primary key (NOM_LIEU)
+);
+-- ============================================================
+--   Table : EVENEMENTS                                       
+-- ============================================================
+create table EVENEMENTS
+(
+    ID_EVENEMENT                    NUMBER(3)              not null,
+    LIEU_EVENEMENT                  CHAR(40)               not null,
+    TITRE_EVENEMENT                 CHAR(60)               not null,
+    DESCRIPTION_EVENEMENT           CHAR(255)              not null,
+    DATE_CREATION_EVENEMENT         DATE                   not null,
+    COUT_EVENEMENT                  NUMBER(4)              not null,
+    TARIF_STANDARD                  NUMBER(3)              not null,
+    TARIF_ADHERENT                  NUMBER(3)              not null,
+    DATE_EVENEMENT                  DATE                   not null,
+    DATE_FIN_RECURRENCE_EVENEMENT   DATE                           ,
+    FREQUENCE                       CHAR(15)                       ,
+    -- TODO : Ajouter contrainte énumération + contrainte DATE_FIN_RECURENCE => FREQUENCE
+    constraint pk_evenements primary key (ID_EVENEMENT)
+);
+alter table EVENEMENTS
+    add constraint fk1_evenements foreign key (ID_EVENEMENT)
+       references PERSONNES (ID_PERSONNE);
+alter table EVENEMENTS
+    add constraint fk2_evenements foreign key (LIEU_EVENEMENT)
+       references LIEUX (NOM_LIEU);
+-- TODO : Ajouter une contrainte pour empêcher une news d'être un évènement
+
+-- ============================================================
+--   Table : PARTICIPATIONS                                       
+-- ============================================================
+create table PARTICIPATIONS
+(
+    ID_PERSONNE_PARTICIPANT         NUMBER(3)              not null,
+    ID_EVENEMENT_PARTICIPE          NUMBER(3)               not null,
+    NOTE                            CHAR(1)                        ,
+    constraint pk_participations primary key (ID_PERSONNE_PARTICIPANT, ID_EVENEMENT_PARTICIPE)
+);
+alter table PARTICIPATIONS
+    add constraint fk1_participations foreign key (ID_PERSONNE_PARTICIPANT)
+       references PERSONNES (ID_PERSONNE);
+alter table PARTICIPATIONS
+    add constraint fk2_participations foreign key (ID_EVENEMENT_PARTICIPE)
+       references EVENEMENTS (ID_EVENEMENT);
+-- ============================================================
+--   Table : ORGANISATEURS                                       
+-- ============================================================
+create table ORGANISATEURS
+(
+    ID_ADHERENT_ORGANISATEUR        NUMBER(3)              not null,
+    ID_EVENEMENT_ORGANISE           NUMBER(3)               not null,
+    constraint pk_organisateurs primary key (ID_ADHERENT_ORGANISATEUR, ID_EVENEMENT_ORGANISE)
+);
+alter table ORGANISATEURS
+    add constraint fk1_organisateurs foreign key (ID_ADHERENT_ORGANISATEUR)
+       references ADHERENTS (ID_ADHERENT);
+alter table ORGANISATEURS
+    add constraint fk2_organisateurs foreign key (ID_EVENEMENT_ORGANISE)
+       references EVENEMENTS (ID_EVENEMENT);
