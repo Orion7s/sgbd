@@ -37,6 +37,7 @@ drop table PARTICIPATIONS cascade constraints;
 drop table ORGANISATEURS cascade constraints;
 
 
+
 -- ============================================================
 --   Table : LIEUX                                       
 -- ============================================================
@@ -221,7 +222,7 @@ create table EVENEMENTS
 create table PARTICIPATIONS
 (
     ID_PERSONNE_PARTICIPANT         NUMBER(3)              not null,
-    ID_EVENEMENT_PARTICIPE          NUMBER(3)               not null,
+    ID_EVENEMENT_PARTICIPE          NUMBER(3)              not null,
     NOTE                            CHAR(1)                        ,
     constraint pk_participations primary key (ID_PERSONNE_PARTICIPANT, ID_EVENEMENT_PARTICIPE),
     constraint fk1_participations foreign key (ID_PERSONNE_PARTICIPANT) references PERSONNES (ID_PERSONNE),
@@ -233,9 +234,31 @@ create table PARTICIPATIONS
 create table ORGANISATEURS
 (
     ID_ADHERENT_ORGANISATEUR        NUMBER(3)              not null,
-    ID_EVENEMENT_ORGANISE           NUMBER(3)               not null,
+    ID_EVENEMENT_ORGANISE           NUMBER(3)              not null,
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (ORAGNISATEURS->EVENEMENTS)--
     constraint pk_organisateurs primary key (ID_ADHERENT_ORGANISATEUR, ID_EVENEMENT_ORGANISE),
     constraint fk1_organisateurs foreign key (ID_ADHERENT_ORGANISATEUR) references ADHERENTS (ID_ADHERENT),
     constraint fk2_organisateurs foreign key (ID_EVENEMENT_ORGANISE) references EVENEMENTS (ID_EVENEMENT)
 );
+
+
+
+-- ============================================================
+--   Gestionnaires de suppression                                       
+-- ============================================================
+create or replace trigger del_cas_objectifs
+after delete on OBJECTIFS
+for each row
+begin
+  delete from POURSUITES where ID_OBJECTIF_POURSUIVI = :old.ID_OBJECTIF;
+end;
+/
+
+show errors trigger del_cas_objectifs;
+
+drop sequence   sq_is_associations;
+drop sequence   sq_is_objectifs;
+
+create sequence sq_is_associations order nocycle minvalue 0 maxvalue 999;
+create sequence sq_is_objectifs order nocycle minvalue 0 maxvalue 999;
+
