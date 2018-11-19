@@ -1,7 +1,7 @@
 -- ============================================================
---   Nom de la base   :  ASSOCIATIONS                                
---   Nom de SGBD      :  ORACLE Version 7.0                    
---   Date de creation :  30/10/96  12:09                       
+--   Nom de la base   :  ASSOCIATIONS
+--   Nom de SGBD      :  ORACLE Version 7.0
+--   Date de creation :  30/10/96  12:09
 -- ============================================================
 
 drop table ASSOCIATIONS cascade constraints;
@@ -39,7 +39,7 @@ drop table ORGANISATEURS cascade constraints;
 
 
 -- ============================================================
---   Table : LIEUX                                       
+--   Table : LIEUX
 -- ============================================================
 create table LIEUX
 (
@@ -47,7 +47,7 @@ create table LIEUX
     constraint pk_lieux primary key (NOM_LIEU)
 );
 -- ============================================================
---   Table : FILIERES                                       
+--   Table : FILIERES
 -- ============================================================
 create table FILIERES
 (
@@ -55,7 +55,7 @@ create table FILIERES
     constraint pk_filieres primary key (NOM_FILIERE)
 );
 -- ============================================================
---   Table : SOURCE_FINANCEMENTS                                       
+--   Table : SOURCE_FINANCEMENTS
 -- ============================================================
 create table SOURCE_FINANCEMENTS
 (
@@ -63,7 +63,7 @@ create table SOURCE_FINANCEMENTS
     constraint pk_source_financement primary key (NOM_SOURCE_FINANCEMENT)
 );
 -- ============================================================
---   Table : OBJECTIFS                                       
+--   Table : OBJECTIFS
 -- ============================================================
 create table OBJECTIFS
 (
@@ -75,7 +75,7 @@ create table OBJECTIFS
 
 
 -- ============================================================
---   Table : ASSOCIATIONS                                            
+--   Table : ASSOCIATIONS
 -- ============================================================
 create table ASSOCIATIONS
 (
@@ -84,7 +84,7 @@ create table ASSOCIATIONS
     constraint pk_association primary key (ID_ASSOCIATION)
 );
 -- ============================================================
---   Table : FINANCEMENTS                                            
+--   Table : FINANCEMENTS
 -- ============================================================
 create table FINANCEMENTS
 (
@@ -95,7 +95,7 @@ create table FINANCEMENTS
     constraint fk2_financements foreign key (NOM_SOURCE_FINANCANT) references SOURCE_FINANCEMENTS (NOM_SOURCE_FINANCEMENT)
 );
 -- ============================================================
---   Table : POURSUITES                                            
+--   Table : POURSUITES
 -- ============================================================
 create table POURSUITES
 (
@@ -111,7 +111,7 @@ create table POURSUITES
 
 
 -- ============================================================
---   Table : PERSONNES                                       
+--   Table : PERSONNES
 -- ============================================================
 create table PERSONNES
 (
@@ -121,7 +121,7 @@ create table PERSONNES
     constraint pk_personnes primary key (ID_PERSONNE)
 );
 -- ============================================================
---   Table : ADHERENTS                                       
+--   Table : ADHERENTS
 -- ============================================================
 create table ADHERENTS
 (
@@ -137,24 +137,37 @@ create table ADHERENTS
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (ADHESIONS->ADHERENTS)--
 );
 -- ============================================================
---   Table : ADHESIONS                                            
+--   Table : ADHESIONS
 -- ============================================================
 create table ADHESIONS
 (
     ID_ASSOCIATION_ADHEREE          NUMBER(3)              not null,
     ID_ADHERENT_ADHERANT            NUMBER(3)              not null,
     DATE_ADHESION                   DATE                   not null,
-    ROLE_ADHERENT                   CHAR(16)                       ,
     COTISATION_REGLEE_ADHESION      NUMBER(1)              not null, -- Use as boolean
+    constraint pk_adhesions  primary key (ID_ASSOCIATION_ADHEREE, ID_ADHERENT_ADHERANT),
     constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION),
     constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
 );
 
+-- ============================================================
+--   Table :  BUREAUX
+-- ============================================================
+create table BUREAUX
+(
+    ID_ASSOCIATION_MEMBRE           NUMBER(3)              not null,
+    ID_ADHERENT_MEMBRE              NUMBER(3)              not null,
+    ROLE_MEMBRE                     CHAR(25)               not null,
+    constraint pk_bureaux  primary key (ID_ASSOCIATION_MEMBRE, ID_ADHERENT_MEMBRE),
+    constraint fk1_bureaux   foreign key (ID_ASSOCIATION_MEMBRE) references ASSOCIATIONS (ID_ASSOCIATION),
+    constraint fk2_bureaux   foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
+    
+);
 
 
 
 -- ============================================================
---   Table : CONTENUS                                       
+--   Table : CONTENUS
 -- ============================================================
 create table CONTENUS
 (
@@ -162,7 +175,7 @@ create table CONTENUS
     constraint pk_contenus primary key (ID_CONTENU)
 );
 -- ============================================================
---   Table : COMMENTAIRES                                            
+--   Table : COMMENTAIRES
 -- ============================================================
 create table COMMENTAIRES
 (
@@ -178,7 +191,7 @@ create table COMMENTAIRES
 
 
 -- ============================================================
---   Table : NEWS                                       
+--   Table : NEWS
 -- ============================================================
 create table NEWS
 (
@@ -195,7 +208,7 @@ create table NEWS
 
 
 -- ============================================================
---   Table : EVENEMENTS                                       
+--   Table : EVENEMENTS
 -- ============================================================
 create table EVENEMENTS
 (
@@ -217,7 +230,7 @@ create table EVENEMENTS
     constraint fk2_evenements foreign key (LIEU_EVENEMENT) references LIEUX (NOM_LIEU)
 );
 -- ============================================================
---   Table : PARTICIPATIONS                                       
+--   Table : PARTICIPATIONS
 -- ============================================================
 create table PARTICIPATIONS
 (
@@ -229,7 +242,7 @@ create table PARTICIPATIONS
     constraint fk2_participations foreign key (ID_EVENEMENT_PARTICIPE) references EVENEMENTS (ID_EVENEMENT)
 );
 -- ============================================================
---   Table : ORGANISATEURS                                       
+--   Table : ORGANISATEURS
 -- ============================================================
 create table ORGANISATEURS
 (
@@ -240,6 +253,12 @@ create table ORGANISATEURS
     constraint fk1_organisateurs foreign key (ID_ADHERENT_ORGANISATEUR) references ADHERENTS (ID_ADHERENT),
     constraint fk2_organisateurs foreign key (ID_EVENEMENT_ORGANISE) references EVENEMENTS (ID_EVENEMENT)
 );
+
+
+
+
+
+
 
 
 @sequences
