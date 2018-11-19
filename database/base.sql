@@ -51,7 +51,7 @@ create table LIEUX
 -- ============================================================
 create table FILIERES
 (
-    NOM_FILIERE                     NUMBER(3)              not null,
+    NOM_FILIERE                     CHAR(40)              not null,
     constraint pk_filieres primary key (NOM_FILIERE)
 );
 -- ============================================================
@@ -130,7 +130,7 @@ create table ADHERENTS
     MOT_DE_PASSE_ADHERENT           CHAR(20)               not null,
     EMAIL_ADHERENT                  CHAR(80)               not null,
     PROMOTION_ADEHRENT              NUMBER(4)              not null,
-    FILIERE_ADHERENT                NUMBER(3)              not null,
+    FILIERE_ADHERENT                CHAR(40)              not null,
     constraint pk_adherant primary key (ID_ADHERENT)               ,
     constraint fk1_adherents foreign key (ID_ADHERENT) references PERSONNES (ID_PERSONNE),
     constraint fk2_adherents foreign key (FILIERE_ADHERENT) references FILIERES (NOM_FILIERE)
@@ -242,23 +242,6 @@ create table ORGANISATEURS
 );
 
 
+@sequences
 
--- ============================================================
---   Gestionnaires de suppression                                       
--- ============================================================
-create or replace trigger del_cas_objectifs
-after delete on OBJECTIFS
-for each row
-begin
-  delete from POURSUITES where ID_OBJECTIF_POURSUIVI = :old.ID_OBJECTIF;
-end;
-/
-
-show errors trigger del_cas_objectifs;
-
-drop sequence   sq_is_associations;
-drop sequence   sq_is_objectifs;
-
-create sequence sq_is_associations order nocycle minvalue 0 maxvalue 999;
-create sequence sq_is_objectifs order nocycle minvalue 0 maxvalue 999;
-
+--@draft
