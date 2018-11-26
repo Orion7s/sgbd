@@ -97,19 +97,19 @@ insert into ADHERENTS values (  6 ,  'mhamdini'    , 'polieu'   , 'mohammedhamdi
 
   
  -- ADHESIONS
-insert into ADHESIONS values (  1 , 1  , '2017-9-12' , 0  ) ;
-insert into ADHESIONS values (  2 , 3  , '2017-9-23' , 1  ) ;
-insert into ADHESIONS values (  3 , 6  , '2017-11-6' , 0  ) ;
-insert into ADHESIONS values (  4 , 5  , '2017-12-12', 0  ) ;
-insert into ADHESIONS values (  6 , 1  , '2017-10-2' , 1  ) ;
-insert into ADHESIONS values (  5 , 1  , '2017-9-13' , 1  ) ;
-insert into ADHESIONS values ( 10 , 2  , '2017-6-5'  , 1  ) ;
-insert into ADHESIONS values ( 11 , 2  , '2017-12-19', 0  ) ;
-insert into ADHESIONS values (  1 , 8  , '2017-10-10', 0  ) ;
-insert into ADHESIONS values (  1 , 4  , '2017-9-15' , 0  ) ;
-insert into ADHESIONS values (  8 , 1  , '2017-9-16' , 1  ) ;
-insert into ADHESIONS values (  7 , 8  , '2017-9-20' , 0  ) ;
-insert into ADHESIONS values (  9 , 5  , '2017-10-14' , 1 ) ;
+insert into ADHESIONS values (  1 , 1  , TO_DATE('2017-09-12', 'yyyy-mm-dd') , 0  ) ;
+insert into ADHESIONS values (  2 , 3  , TO_DATE('2017-09-23', 'yyyy-mm-dd') , 1  ) ;
+insert into ADHESIONS values (  3 , 6  , TO_DATE('2017-11-06', 'yyyy-mm-dd') , 0  ) ;
+insert into ADHESIONS values (  4 , 5  , TO_DATE('2017-12-12', 'yyyy-mm-dd'), 0  ) ;
+insert into ADHESIONS values (  6 , 1  , TO_DATE('2017-10-02', 'yyyy-mm-dd') , 1  ) ;
+insert into ADHESIONS values (  5 , 1  , TO_DATE('2017-09-13', 'yyyy-mm-dd') , 1  ) ;
+insert into ADHESIONS values ( 10 , 2  , TO_DATE('2017-06-05', 'yyyy-mm-dd')  , 1  ) ;
+insert into ADHESIONS values ( 11 , 2  , TO_DATE('2017-12-19', 'yyyy-mm-dd'), 0  ) ;
+insert into ADHESIONS values (  1 , 8  , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
+insert into ADHESIONS values (  1 , 4  , TO_DATE('2017-09-15', 'yyyy-mm-dd') , 0  ) ;
+insert into ADHESIONS values (  8 , 1  , TO_DATE('2017-09-16', 'yyyy-mm-dd') , 1  ) ;
+insert into ADHESIONS values (  7 , 8  , TO_DATE('2017-09-20', 'yyyy-mm-dd') , 0  ) ;
+insert into ADHESIONS values (  9 , 5  , TO_DATE('2017-10-14', 'yyyy-mm-dd') , 1 ) ;
 
 
 
