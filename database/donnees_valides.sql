@@ -112,6 +112,26 @@ insert into ADHESIONS values (  7 , 8  , TO_DATE('2017-09-20', 'yyyy-mm-dd') , 0
 insert into ADHESIONS values (  9 , 5  , TO_DATE('2017-10-14', 'yyyy-mm-dd') , 1 ) ;
 
 
+-- BUREAUX
+insert into BUREAUX values (  1 , 1  , 'President'     ) ;
+insert into BUREAUX values (  3 , 6  , 'President'     ) ;
+insert into BUREAUX values (  4 , 5  , 'President'     ) ;
+insert into BUREAUX values (  5 , 1  , 'Vice-president') ;
+insert into BUREAUX values (  1 , 4  , 'Tresorier'     ) ;
+insert into BUREAUX values (  1 , 8  , 'secretaire'    ) ;
+
+
+-- FILIERES
+insert into FILIERES values (  'INFORMATIQUE'                ) ;
+insert into FILIERES values (  'TELECOM'                     ) ;
+insert into FILIERES values (  'ELECTRONIQUE'                ) ;
+insert into FILIERES values (  'MATHEMATIQUES ET MECANIQUE'  ) ;
+
+-- LIEUX
+insert into LIEUX values (  'CHATEAU LAFITTE'                ) ;
+insert into LIEUX values (  'GRAND AMPHI'                    ) ;
+insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
+insert into LIEUX values (  'RUE '                           ) ;
 
 
 
