@@ -139,9 +139,14 @@ insert into CONTENUS values (3, TO_DATE('2017-09-12', 'yyyy-mm-dd'), 'Accueil de
 
 -- EVENEMENTS
 insert into EVENEMENTS values (3, 10, 'GRAND AMPHI', 'Un grand discours pour peu de choses.', 20, 1, 4, TO_DATE('2017-10-02 21:00', 'yyyy-mm-dd hh24:mi'), null, null);
+-- TODO : Evenements sans participants
 
 -- ORGANISATEURS
 insert into ORGANISATEURS values (2, 3);
 insert into ORGANISATEURS values (4, 3);
-
+-- PARTIPATIONS
+insert into PARTICIPATIONS values (3, 3, null);
+insert into PARTICIPATIONS values (6, 3, 10);
+insert into PARTICIPATIONS values (9, 3, 20);
+insert into PARTICIPATIONS values (11, 3, 3);
 commit;
