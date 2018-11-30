@@ -5,7 +5,7 @@
 -- = Liste les participants à un évènement d'id n                    =
 -- ===================================================================
 
-prompt 'Création de la requête paramétrée PARTICIPANTS_A';
+prompt [Création requête PARTICIPANTS_A];
 
 -- Déclaration du type des lignes
 CREATE TYPE rt__participants_a AS OBJECT

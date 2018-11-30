@@ -5,7 +5,7 @@
 -- = Liste les organisateurs d'un évènement d'id n                   =
 -- ===================================================================
 
-prompt 'Création de la requête paramétrée ORGANISATEURS_DE';
+prompt [Création requête ORGANISATEURS_DE];
 
 -- Déclaration du type des lignes
 CREATE TYPE rt__organisateurs_de AS OBJECT

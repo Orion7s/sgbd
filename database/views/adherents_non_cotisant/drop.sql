@@ -1,0 +1,1 @@
+drop view ADHERENTS_NON_COTISANT;
