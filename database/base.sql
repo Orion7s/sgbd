@@ -118,8 +118,8 @@ create table POURSUITES
 create table PERSONNES
 (
     ID_PERSONNE                     NUMBER(3)              not null,
-    NOM_PERSONNE                    CHAR(60)               not null,
-    PRENOM_PERSONNE                 CHAR(255)              not null,
+    P_NOM                           CHAR(60)               not null,
+    P_PRENOM                        CHAR(60)               not null,
     constraint pk_personnes primary key (ID_PERSONNE)
 );
 -- ============================================================
@@ -128,14 +128,14 @@ create table PERSONNES
 create table ADHERENTS
 (
     ID_ADHERENT                     NUMBER(3)              not null,
-    LOGIN_ADHERENT                  CHAR(255)              not null,
-    MOT_DE_PASSE_ADHERENT           CHAR(20)               not null,
-    EMAIL_ADHERENT                  CHAR(80)               not null,
-    PROMOTION_ADEHRENT              NUMBER(4)              not null,
-    FILIERE_ADHERENT                CHAR(40)              not null,
+    A_LOGIN                         CHAR(24)               not null,
+    A_MOT_DE_PASSE                  CHAR(20)               not null,
+    A_EMAIL                         CHAR(50)               not null,
+    A_PROMOTION                     NUMBER(4)              not null,
+    A_FILIERE                       CHAR(40)               not null,
     constraint pk_adherant primary key (ID_ADHERENT)               ,
-    constraint fk1_adherents foreign key (ID_ADHERENT) references PERSONNES (ID_PERSONNE),
-    constraint fk2_adherents foreign key (FILIERE_ADHERENT) references FILIERES (NOM_FILIERE)
+    constraint fk1_adherents foreign key (ID_ADHERENT) references PERSONNES (ID_PERSONNE)--,
+    --constraint fk2_adherents foreign key (FILIERE_ADHERENT) references FILIERES (NOM_FILIERE)
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (ADHESIONS->ADHERENTS)--
 );
 -- ============================================================
@@ -148,8 +148,8 @@ create table ADHESIONS
     DATE_ADHESION                   DATE                   not null,
     COTISATION_REGLEE_ADHESION      NUMBER(1)              not null, -- Use as boolean
     constraint pk_adhesions  primary key (ID_ASSOCIATION_ADHEREE, ID_ADHERENT_ADHERANT),
-    constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION),
-    constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
+    constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION)--,
+    --constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
 );
 
 -- ============================================================
@@ -161,8 +161,8 @@ create table BUREAUX
     ID_ADHERENT_MEMBRE              NUMBER(3)              not null,
     ROLE_MEMBRE                     CHAR(25)               not null,
     constraint pk_bureaux  primary key (ID_ASSOCIATION_MEMBRE, ID_ADHERENT_MEMBRE),
-    constraint fk1_bureaux   foreign key (ID_ASSOCIATION_MEMBRE) references ASSOCIATIONS (ID_ASSOCIATION),
-    constraint fk2_bureaux   foreign key (ID_ADHERENT_MEMBRE) references ADHERENTS (ID_ADHERENT) 
+    constraint fk1_bureaux   foreign key (ID_ASSOCIATION_MEMBRE) references ASSOCIATIONS (ID_ASSOCIATION)--,
+    --constraint fk2_bureaux   foreign key (ID_ADHERENT_MEMBRE) references ADHERENTS (ID_ADHERENT) 
 );
 
 
@@ -257,12 +257,7 @@ create table ORGANISATEURS
 );
 
 
-
-
-
-
-
-
 @sequences
-
+@cascadeDeleteTriggers
+@queries/organisateurs_de.sql
 --@draft

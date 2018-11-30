@@ -2,29 +2,30 @@
 --    suppression des donnees
 -- ============================================================
 
-delete from ASSOCIATIONS ;
-delete from SOURCE_FINANCEMENTS ;
-delete from FINANCEMENTS ;
-delete from OBJECTIFS ;
-delete from POURSUITES ;
-delete from ADHERENTS ;
-delete from ADHESIONS ;
-delete from FILIERES ;
-delete from CONTENUS ;
-delete from NEWS ;
-delete from COMMENTAIRES ;
-delete from PERSONNES ;
-delete from LIEUX ;
-delete from EVENEMENTS ;
-delete from PARTICIPATIONS ;
-delete from ORGANISATEURS ;
+delete from ORGANISATEURS;
+delete from PARTICIPATIONS;
+delete from EVENEMENTS;
+delete from NEWS;
+delete from COMMENTAIRES;
+delete from CONTENUS;
+delete from BUREAUX;
+delete from ADHESIONS;
+delete from ADHERENTS;
+delete from PERSONNES;
+delete from POURSUITES;
+delete from FINANCEMENTS;
+delete from ASSOCIATIONS;
+delete from OBJECTIFS;
+delete from SOURCE_FINANCEMENTS;
+delete from FILIERES;
+delete from LIEUX;
 
 commit ;
 
 
--- ============================================================
---    creation des donnees
--- ============================================================
+
+
+
 
 -- ASSOCIATIONS
 
@@ -105,8 +106,8 @@ insert into ADHESIONS values (  6 , 1  , TO_DATE('2017-10-02', 'yyyy-mm-dd') , 1
 insert into ADHESIONS values (  5 , 1  , TO_DATE('2017-09-13', 'yyyy-mm-dd') , 1  ) ;
 insert into ADHESIONS values ( 10 , 2  , TO_DATE('2017-06-05', 'yyyy-mm-dd')  , 1  ) ;
 insert into ADHESIONS values ( 11 , 2  , TO_DATE('2017-12-19', 'yyyy-mm-dd'), 0  ) ;
-insert into ADHESIONS values (  1 , 8  , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
-insert into ADHESIONS values (  1 , 4  , TO_DATE('2017-09-15', 'yyyy-mm-dd') , 0  ) ;
+insert into ADHESIONS values ( 10 , 8  , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
+insert into ADHESIONS values ( 10 , 4  , TO_DATE('2017-09-15', 'yyyy-mm-dd') , 0  ) ;
 insert into ADHESIONS values (  8 , 1  , TO_DATE('2017-09-16', 'yyyy-mm-dd') , 1  ) ;
 insert into ADHESIONS values (  7 , 8  , TO_DATE('2017-09-20', 'yyyy-mm-dd') , 0  ) ;
 insert into ADHESIONS values (  9 , 5  , TO_DATE('2017-10-14', 'yyyy-mm-dd') , 1 ) ;
@@ -133,7 +134,14 @@ insert into LIEUX values (  'GRAND AMPHI'                    ) ;
 insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
 insert into LIEUX values (  'RUE '                           ) ;
 
+-- CONTENUS
+insert into CONTENUS values (3, TO_DATE('2017-09-12', 'yyyy-mm-dd'), 'Accueil des entrants');
 
+-- EVENEMENTS
+insert into EVENEMENTS values (3, 10, 'GRAND AMPHI', 'Un grand discours pour peu de choses.', 20, 1, 4, TO_DATE('2017-10-02 21:00', 'yyyy-mm-dd hh24:mi'), null, null);
 
+-- ORGANISATEURS
+insert into ORGANISATEURS values (2, 3);
+insert into ORGANISATEURS values (4, 3);
 
 commit;
