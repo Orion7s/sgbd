@@ -1,0 +1,1 @@
+drop view NB_COMMENTAIRES_PAR_NEWS;

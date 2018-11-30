@@ -5,18 +5,17 @@
 -- ============================================================
 
 
-@tables/drop
+
+
+
+
+
+@drop
 @tables/create
-
-
-
-
-@sequences
-@cascadeDeleteTriggers
-
-@views/drop
 @views/create
-@queries/drop
 @queries/create
+@procedures/create
 
+--@sequences
+--@cascadeDeleteTriggers
 --@draft

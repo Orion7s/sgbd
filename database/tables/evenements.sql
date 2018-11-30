@@ -7,7 +7,7 @@ create table EVENEMENTS
     ID_ASSOCIATION_HOTE             NUMBER(3)              not null,
     LIEU_EVENEMENT                  CHAR(40)               not null,
     DESCRIPTION_EVENEMENT           CHAR(255)              not null,
-    COUT_EVENEMENT                  NUMBER(4)              not null,
+    COUT_EVENEMENT                  NUMBER(10)              not null,
     TARIF_STANDARD                  NUMBER(3)              not null,
     TARIF_ADHERENT                  NUMBER(3)              not null,
     DATE_EVENEMENT                  DATE                   not null,

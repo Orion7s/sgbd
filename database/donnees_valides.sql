@@ -16,7 +16,7 @@ delete from POURSUITES;
 delete from FINANCEMENTS;
 delete from ASSOCIATIONS;
 delete from OBJECTIFS;
-delete from SOURCE_FINANCEMENTS;
+delete from SOURCES_FINANCEMENT;
 delete from FILIERES;
 delete from LIEUX;
 
@@ -111,7 +111,7 @@ insert into ADHESIONS values ( 10 , 8  , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0 
 insert into ADHESIONS values ( 10 , 4  , TO_DATE('2017-09-15', 'yyyy-mm-dd') , 0  ) ;
 insert into ADHESIONS values (  8 , 1  , TO_DATE('2017-09-16', 'yyyy-mm-dd') , 1  ) ;
 insert into ADHESIONS values (  7 , 8  , TO_DATE('2017-09-20', 'yyyy-mm-dd') , 0  ) ;
-insert into ADHESIONS values (  9 , 5  , TO_DATE('2017-10-14', 'yyyy-mm-dd') , 1 ) ;
+insert into ADHESIONS values ( 10 , 5  , TO_DATE('2016-10-14', 'yyyy-mm-dd') , 1 ) ;
 
 
 -- BUREAUX
@@ -151,31 +151,31 @@ insert into PARTICIPATIONS values (6, 3, 10);
 insert into PARTICIPATIONS values (9, 3, 20);
 insert into PARTICIPATIONS values (11, 3, 3);
 
----Commentaires
-insert into COMMENTAIRES values (1, 1, 1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu');
-insert into COMMENTAIRES values (2, 2, 2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
-
-
 --contenus
 insert into CONTENUS values (1, TO_DATE('2017-09-10', 'yyyy-mm-dd'),'Contenu 1');
 insert into CONTENUS values (2, TO_DATE('2017-09-15', 'yyyy-mm-dd'),'Contenu 2');
 
---evenements
-insert into EVENEMENTS values (1, 12, 'CHATEAU LAFITTE','Gala '       ,10 000 ,65,0,TO_DATE('2018-11-23', 'yyyy-mm-dd'),NULL,NULL);
-insert into EVENEMENTS values (2, 3 , 'GRAND AMPHI'    ,'Soirée Noel ',1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
 
---financements
-insert into FINANCEMENTS values (1, 'Cotisations');
+---Commentaires
+insert into COMMENTAIRES values (1, 1, 1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu');
+insert into COMMENTAIRES values (2, 2, 2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
+
+--evenements
+insert into EVENEMENTS values (1, 12, 'CHATEAU LAFITTE','Gala '       ,10000 ,65,0,TO_DATE('2018-11-23', 'yyyy-mm-dd'),NULL,NULL);
+insert into EVENEMENTS values (2, 3 , 'GRAND AMPHI'    ,'Soirée Noel ',1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
 
 --sources_financement
 insert into SOURCES_FINANCEMENT values ('Cotisations');
 insert into SOURCES_FINANCEMENT values ('banques');
 insert into SOURCES_FINANCEMENT values ('Vente de repas');
 
+--financements
+insert into FINANCEMENTS values (1, 'Cotisations');
+
 ---news 
-insert into NEWS values (1,1,1);
-insert into NEWS values (2,3,6);
-insert into NEWS values (3,5,1);
+insert into NEWS values (1,1,1, 'News 1');
+insert into NEWS values (2,3,6, 'News 2');
+insert into NEWS values (3,5,1, 'News 3');
 
 ---ORGANISATEURS
 insert into ORGANISATEURS values (6,2);
