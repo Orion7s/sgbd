@@ -1,0 +1,1 @@
+drop function nb_commentaire_news;

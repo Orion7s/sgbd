@@ -1,0 +1,1 @@
+@procedures/nb_commentaires_news/drop
