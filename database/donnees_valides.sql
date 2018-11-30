@@ -40,6 +40,7 @@ insert into ASSOCIATIONS values (  8 , 'AEI'           ) ;
 insert into ASSOCIATIONS values (  9 , 'RAPEIRB'       ) ;
 insert into ASSOCIATIONS values ( 10 , 'SPACEEIRB'     ) ;
 insert into ASSOCIATIONS values ( 11 , 'EKIP_BAR'      ) ;
+insert into ASSOCIATIONS values ( 12 , 'GALA'          ) ;
 
 -- OBJECTIFS
 
@@ -89,7 +90,7 @@ insert into PERSONNES values ( 10 ,  'GRACE'      ,  'HAZEL'           ) ;
 insert into PERSONNES values ( 11 ,  'WIZELY'     ,  'RON'             ) ;
 
 -- ADHERENTS
-insert into ADHERENTS values (  1 ,  'smaghraoui'  , 'sop2'     ,    'maghraouisahar@gmail.com' , 2020 , 'INFORMATIQUE'     ) ;
+insert into ADHERENTS values (  1 ,  'smaghraoui'  , 'sop2'     , 'maghraouisahar@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
 insert into ADHERENTS values (  2 ,  'yjulienne'   , 'mpo6'     , 'yannjulienne@gmail.com'      , 2020 , 'INFORMATIQUE'     ) ;
 insert into ADHERENTS values (  3 ,  'melmansouri' , 'yol23'    , 'adnanemansouri@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
 insert into ADHERENTS values (  4 ,  'schafai'     , 'foiup2'   , 'sarachafai@gmail.com'        , 2020 , 'INFORMATIQUE'     ) ;
@@ -149,4 +150,44 @@ insert into PARTICIPATIONS values (3, 3, null);
 insert into PARTICIPATIONS values (6, 3, 10);
 insert into PARTICIPATIONS values (9, 3, 20);
 insert into PARTICIPATIONS values (11, 3, 3);
+
+---Commentaires
+insert into COMMENTAIRES values (1, 1, 1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu');
+insert into COMMENTAIRES values (2, 2, 2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
+
+
+--contenus
+insert into CONTENUS values (1, TO_DATE('2017-09-10', 'yyyy-mm-dd'),'Contenu 1');
+insert into CONTENUS values (2, TO_DATE('2017-09-15', 'yyyy-mm-dd'),'Contenu 2');
+
+--evenements
+insert into EVENEMENTS values (1, 12, 'CHATEAU LAFITTE','Gala '       ,10 000 ,65,0,TO_DATE('2018-11-23', 'yyyy-mm-dd'),NULL,NULL);
+insert into EVENEMENTS values (2, 3 , 'GRAND AMPHI'    ,'Soirée Noel ',1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
+
+--financements
+insert into FINANCEMENTS values (1, 'Cotisations');
+
+--sources_financement
+insert into SOURCES_FINANCEMENT values ('Cotisations');
+insert into SOURCES_FINANCEMENT values ('banques');
+insert into SOURCES_FINANCEMENT values ('Vente de repas');
+
+---news 
+insert into NEWS values (1,1,1);
+insert into NEWS values (2,3,6);
+insert into NEWS values (3,5,1);
+
+---ORGANISATEURS
+insert into ORGANISATEURS values (6,2);
+
+---participations
+insert into PARTICIPATIONS values (1,1,5);
+insert into PARTICIPATIONS values (6,1,3);
+insert into PARTICIPATIONS values (5,1,9);
+
+
+
+
+
+
 commit;
