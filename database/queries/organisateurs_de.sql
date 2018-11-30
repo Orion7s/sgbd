@@ -1,6 +1,6 @@
 -- ===================================================================
 -- = Fonction requête : organisateurs_de                             =
--- = USAGE : select * from TABLE(organisateurs_de(n))                =
+-- = USAGE : select * from TABLE(ORGANISATEURS_DE(n))                =
 -- = Résumé ==========================================================
 -- = Liste les organisateurs d'un évènement d'id n                   =
 -- ===================================================================
@@ -43,4 +43,4 @@ end;
 /
 show errors type rt__organisateurs_de;
 show errors type t__organisateurs_de;
-show errors function ORGANISATEURS_DE_PIPE;
+show errors function ORGANISATEURS_DE;
