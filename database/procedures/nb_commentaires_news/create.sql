@@ -5,6 +5,7 @@
 -- = Résumé ==========================================================
 -- = Renvoie le nombre de commentaires pour une news d'id nid        =
 -- ===================================================================
+prompt [Création fonction nb_commentaire_news];
 create function nb_commentaire_news (f_id_news number) return number
 as
     retval number;

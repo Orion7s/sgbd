@@ -37,8 +37,8 @@ begin
     if  (extract (month from instant)) < 9 then 
         annee_date := annee_date - 1;
     end if;
-    debut_annee := TO_DATE(annee_date||'-09-01', 'yyyy-mm-dd');
-    fin_annee := TO_DATE(annee_date+1||'-08-31', 'yyyy-mm-dd');
+    debut_annee := TO_DATE(annee_date||'-'||dbsettings.adhesion_date_debut, 'yyyy-mm-dd');
+    fin_annee := TO_DATE(annee_date+1||'-'||dbsettings.adhesion_date_fin, 'yyyy-mm-dd');
   FOR r IN (SELECT ADHERENTS.*, P_NOM, P_PRENOM, DATE_ADHESION, COTISATION_REGLEE_ADHESION from ADHESIONS
             inner join ADHERENTS on ID_ADHERENT = ID_ADHERENT_ADHERANT
             inner join PERSONNES on ID_PERSONNE = ID_ADHERENT

@@ -1,1 +1,2 @@
 @procedures/nb_commentaires_news/drop
+@procedures/note_moyenne_evenement/drop

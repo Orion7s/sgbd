@@ -1,0 +1,1 @@
+drop view NOTES_MOYENNES_EVENEMENT;
