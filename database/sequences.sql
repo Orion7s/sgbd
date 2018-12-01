@@ -7,7 +7,7 @@ drop sequence   sq_id_personnes;
 drop sequence   sq_id_evenements;
 drop sequence   sq_id_news;
 drop sequence   sq_id_commentaires;
--- TODO : Trigger de remplacement automatique à l'insertion ir OBJECTIFS, ASSOCIATIONS, PERSONNES, CONTENUS, COMMENTAIRES
+
 create sequence sq_id_objectifs order nocycle minvalue 0 maxvalue 999;
 create sequence sq_id_associations order nocycle minvalue 0 maxvalue 999;
 create sequence sq_id_personnes order nocycle minvalue 0 maxvalue 999;

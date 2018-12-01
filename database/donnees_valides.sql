@@ -203,12 +203,12 @@ begin
     insert into ORGANISATEURS values ( mohammedAm , ev_soireeNoel );
 -- PARTIPATIONS
     insert into PARTICIPATIONS values ( mohammedEl , ev_accueil , null);
-    insert into PARTICIPATIONS values ( mohammedAm , ev_accueil ,   10);
-    insert into PARTICIPATIONS values ( harry      , ev_accueil ,   20);
-    insert into PARTICIPATIONS values ( ron        , ev_accueil ,   3 );
-    insert into PARTICIPATIONS values ( sahar      , ev_gala    ,   5 );
-    insert into PARTICIPATIONS values ( mohammedAm , ev_gala    ,   3 );
-    insert into PARTICIPATIONS values ( lilia      , ev_gala    ,   9 );
+    insert into PARTICIPATIONS values ( mohammedAm , ev_accueil ,    5);
+    insert into PARTICIPATIONS values ( harry      , ev_accueil ,   10);
+    insert into PARTICIPATIONS values ( ron        , ev_accueil ,    2);
+    insert into PARTICIPATIONS values ( sahar      , ev_gala    ,    3);
+    insert into PARTICIPATIONS values ( mohammedAm , ev_gala    ,    2);
+    insert into PARTICIPATIONS values ( lilia      , ev_gala    ,    4);
 
 -- COMMENTAIRES
     com1 := faire_commenter(sahar , News1, TO_DATE('2017-09-22 07:02', 'yyyy-mm-dd hh:mi'),'coucouuu'      );
