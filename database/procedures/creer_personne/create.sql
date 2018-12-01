@@ -1,9 +1,10 @@
 
 -- ===================================================================
--- = Fonction : creer_personne                               =
--- = USAGE : select creer_personne(eid) from dual            =
+-- = Fonction : creer_personne                                       =
+-- = USAGE : select creer_personne(nom, prenom) from dual            =
 -- = Résumé ==========================================================
--- = Renvoie la note moyenne pour un évènement d'id eid              =
+-- = Créer une personne avec le nom et le prénom spécifié.           =
+-- = Renvoie l'identifiant de la personne crée.                      =
 -- ===================================================================
 prompt [Création fonction creer_personne];
 create function creer_personne
