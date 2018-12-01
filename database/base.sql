@@ -8,16 +8,17 @@
 
 show errors package dbsettings;
 
-
+-- TODO : Moyenne des commentaires donnés par chaque adhérents pour une news.
 @drop
 
 @settings/create
 @settings
 @tables/create
+@sequences
 @views/create
 @queries/create
 @procedures/create
 
---@sequences
+
 --@cascadeDeleteTriggers
 --@draft

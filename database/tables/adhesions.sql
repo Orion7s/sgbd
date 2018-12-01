@@ -8,6 +8,6 @@ create table ADHESIONS
     DATE_ADHESION                   DATE                   not null,
     COTISATION_REGLEE_ADHESION      NUMBER(1)              not null, -- Use as boolean
     constraint pk_adhesions  primary key (ID_ASSOCIATION_ADHEREE, ID_ADHERENT_ADHERANT),
-    constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION)--,
-    --constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
+    constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION),
+    constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
 );

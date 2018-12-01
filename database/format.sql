@@ -2,6 +2,7 @@ set LINESIZE 160;
 set pages 16;
 set recsep WRAPPED;
 set wrap off;
+set serveroutput on;
 COLUMN P_NOM        HEADING 'NOM';
 COLUMN P_NOM        FORMAT A10;
 COLUMN P_PRENOM     HEADING 'PRENOM';
