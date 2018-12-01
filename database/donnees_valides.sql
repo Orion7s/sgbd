@@ -66,6 +66,11 @@ declare
     harry         number;
     hazel         number;
     ron           number;
+  -- News
+    News1         number;
+    News2         number;
+    News3         number;
+    
 begin
 -- ASSOCIATIONS
 
@@ -180,9 +185,7 @@ insert into CONTENUS values ( 1 , TO_DATE('2017-09-10' , 'yyyy-mm-dd') , 'Conten
 insert into CONTENUS values ( 2 , TO_DATE('2017-09-15' , 'yyyy-mm-dd') , 'Contenu 2'            );
 insert into CONTENUS values ( 3 , TO_DATE('2017-09-12' , 'yyyy-mm-dd') ,  'Accueil des entrants');
 insert into CONTENUS values ( 4 , TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'Contenu 3'            );
-insert into CONTENUS values ( 5005 , TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 1'               );
-insert into CONTENUS values ( 5006 , TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 2'               );
-insert into CONTENUS values ( 5007 , TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 3'               );
+
 -- EVENEMENTS
 insert into EVENEMENTS values ( 1 , gala      , 'CHATEAU LAFITTE' , 'Gala '                                  , 10000 , 65 , 0, TO_DATE('2018-11-23', 'yyyy-mm-dd') , NULL , NULL);
 insert into EVENEMENTS values ( 2 , bda       , 'GRAND AMPHI'     , 'Soiree Noel '                           ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
@@ -190,9 +193,9 @@ insert into EVENEMENTS values ( 3 , spaceeirb , 'GRAND AMPHI'     ,  'Un grand d
 insert into EVENEMENTS values ( 4 , bda       , 'GRAND AMPHI'     , 'After de Noel '                         ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
 
 -- NEWS 
-insert into NEWS values ( 5005 , gcc , sahar      , 'News 1');
-insert into NEWS values ( 5006 , bda , mohammedAm , 'News 2');
-insert into NEWS values ( 5007 , bds , sahar      , 'News 3');
+    News1 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 1' , gcc , sahar      , 'Contenu de la news 1');
+    News2 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 2' , bda , mohammedAm , 'Contenu de la news 2');
+    News3 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 3' , bds , sahar      , 'Contenu de la news 3');
 
 -- ORGANISATEURS
 insert into ORGANISATEURS values ( yann       , 3 );
@@ -208,8 +211,8 @@ insert into PARTICIPATIONS values ( mohammedAm , 1 ,   3 );
 insert into PARTICIPATIONS values ( lilia      , 1 ,   9 );
 
 -- COMMENTAIRES
-insert into COMMENTAIRES values ( 1, sahar , 5005, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu'      );
-insert into COMMENTAIRES values ( 2, yann  , 5006, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
+insert into COMMENTAIRES values ( 1, sahar , News1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu'      );
+insert into COMMENTAIRES values ( 2, yann  , News2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
 
 -- SOURCES_FINANCEMENT
 insert into SOURCES_FINANCEMENT values ('Cotisations'    );

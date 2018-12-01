@@ -4,3 +4,4 @@
 @procedures/faire_adherer/drop
 @procedures/creer_association/drop
 @procedures/creer_objectif/drop
+@procedures/creer_news/drop
