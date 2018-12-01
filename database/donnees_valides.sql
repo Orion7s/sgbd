@@ -136,8 +136,10 @@ insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
 insert into LIEUX values (  'RUE '                           ) ;
 
 -- CONTENUS
+insert into CONTENUS values (1, TO_DATE('2017-09-10', 'yyyy-mm-dd'),'Contenu 1');
+insert into CONTENUS values (2, TO_DATE('2017-09-15', 'yyyy-mm-dd'),'Contenu 2');
 insert into CONTENUS values (3, TO_DATE('2017-09-12', 'yyyy-mm-dd'), 'Accueil des entrants');
-
+insert into CONTENUS values (4, TO_DATE('2017-12-26', 'yyyy-mm-dd'),'Contenu 3');
 -- EVENEMENTS
 insert into EVENEMENTS values (3, 10, 'GRAND AMPHI', 'Un grand discours pour peu de choses.', 20, 1, 4, TO_DATE('2017-10-02 21:00', 'yyyy-mm-dd hh24:mi'), null, null);
 -- TODO : Evenements sans participants
@@ -152,8 +154,8 @@ insert into PARTICIPATIONS values (9, 3, 20);
 insert into PARTICIPATIONS values (11, 3, 3);
 
 --contenus
-insert into CONTENUS values (1, TO_DATE('2017-09-10', 'yyyy-mm-dd'),'Contenu 1');
-insert into CONTENUS values (2, TO_DATE('2017-09-15', 'yyyy-mm-dd'),'Contenu 2');
+
+
 
 
 ---Commentaires
@@ -161,8 +163,9 @@ insert into COMMENTAIRES values (1, 1, 1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'c
 insert into COMMENTAIRES values (2, 2, 2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
 
 --evenements
-insert into EVENEMENTS values (1, 12, 'CHATEAU LAFITTE','Gala '       ,10000 ,65,0,TO_DATE('2018-11-23', 'yyyy-mm-dd'),NULL,NULL);
-insert into EVENEMENTS values (2, 3 , 'GRAND AMPHI'    ,'Soirée Noel ',1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
+insert into EVENEMENTS values (1, 12, 'CHATEAU LAFITTE','Gala '         ,10000  ,65,0,TO_DATE('2018-11-23', 'yyyy-mm-dd'),NULL,NULL);
+insert into EVENEMENTS values (2, 3 , 'GRAND AMPHI'    ,'Soiree Noel '  ,1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
+insert into EVENEMENTS values (4, 3 , 'GRAND AMPHI'    ,'After de Noel ',1000   ,0 ,0,TO_DATE('2018-12-20', 'yyyy-mm-dd'),NULL,NULL);
 
 --sources_financement
 insert into SOURCES_FINANCEMENT values ('Cotisations');
