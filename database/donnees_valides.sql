@@ -75,7 +75,9 @@ declare
     ev_soireeNoel number;
     ev_accueil    number;
     ev_afterNoel  number;
-    
+  -- Commentaires
+    com1          number;
+    com2          number;
 begin
 -- ASSOCIATIONS
 
@@ -140,19 +142,19 @@ begin
     ron        := creer_personne(  'WIZELY'     ,  'RON'             ) ;
 
 -- FILIERES
-   insert into FILIERES values (  'INFORMATIQUE'                ) ;
-   insert into FILIERES values (  'TELECOM'                     ) ;
-   insert into FILIERES values (  'ELECTRONIQUE'                ) ;
-   insert into FILIERES values (  'MATHEMATIQUES ET MECANIQUE'  ) ;
+    insert into FILIERES values (  'INFORMATIQUE'                ) ;
+    insert into FILIERES values (  'TELECOM'                     ) ;
+    insert into FILIERES values (  'ELECTRONIQUE'                ) ;
+    insert into FILIERES values (  'MATHEMATIQUES ET MECANIQUE'  ) ;
 
 -- ADHERENTS
-insert into ADHERENTS values (  sahar      ,  'smaghraoui'  , 'sop2'     , 'maghraouisahar@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  yann       ,  'yjulienne'   , 'mpo6'     , 'yannjulienne@gmail.com'      , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  mohammedEl ,  'melmansouri' , 'yol23'    , 'adnanemansouri@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  sara       ,  'schafai'     , 'foiup2'   , 'sarachafai@gmail.com'        , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  lilia      ,  'lcheikh'     , 'mpo6536'  , 'lcheikh@gmail.com'           , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  mohammedAm ,  'mhamdini'    , 'polieu'   , 'mohammedhamdini@gmail.com'   , 2020 , 'INFORMATIQUE'     ) ;
-insert into ADHERENTS values (  sophie     ,  'sdupont'     , 'sd1695'   , 'spohie.dupont@outlook.com'   , 2020 , 'ELECTRONIQUE'     ) ;
+    insert into ADHERENTS values (  sahar      ,  'smaghraoui'  , 'sop2'     , 'maghraouisahar@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  yann       ,  'yjulienne'   , 'mpo6'     , 'yannjulienne@gmail.com'      , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  mohammedEl ,  'melmansouri' , 'yol23'    , 'adnanemansouri@gmail.com'    , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  sara       ,  'schafai'     , 'foiup2'   , 'sarachafai@gmail.com'        , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  lilia      ,  'lcheikh'     , 'mpo6536'  , 'lcheikh@gmail.com'           , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  mohammedAm ,  'mhamdini'    , 'polieu'   , 'mohammedhamdini@gmail.com'   , 2020 , 'INFORMATIQUE'     ) ;
+    insert into ADHERENTS values (  sophie     ,  'sdupont'     , 'sd1695'   , 'spohie.dupont@outlook.com'   , 2020 , 'ELECTRONIQUE'     ) ;
   
  -- ADHESIONS
     insert into ADHESIONS values (  gcc       , sahar       , TO_DATE('2017-09-12', 'yyyy-mm-dd'), 0  ) ;
@@ -171,19 +173,18 @@ insert into ADHERENTS values (  sophie     ,  'sdupont'     , 'sd1695'   , 'spoh
 
 
 -- BUREAUX
-insert into BUREAUX values (  gcc , sahar       , 'President'     ) ;
-insert into BUREAUX values (  bda , mohammedAm  , 'President'     ) ;
-insert into BUREAUX values (  bde , lilia       , 'President'     ) ;
-insert into BUREAUX values (  bds , sahar       , 'Vice-president') ;
-insert into BUREAUX values (  gcc , sara        , 'Tresorier'     ) ;
-insert into BUREAUX values (  gcc , sophie      , 'secretaire'    ) ;
-
+    insert into BUREAUX values (  gcc , sahar       , 'President'     ) ;
+    insert into BUREAUX values (  bda , mohammedAm  , 'President'     ) ;
+    insert into BUREAUX values (  bde , lilia       , 'President'     ) ;
+    insert into BUREAUX values (  bds , sahar       , 'Vice-president') ;
+    insert into BUREAUX values (  gcc , sara        , 'Tresorier'     ) ;
+    insert into BUREAUX values (  gcc , sophie      , 'secretaire'    ) ;
 
 -- LIEUX
-insert into LIEUX values (  'CHATEAU LAFITTE'                ) ;
-insert into LIEUX values (  'GRAND AMPHI'                    ) ;
-insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
-insert into LIEUX values (  'RUE '                           ) ;
+    insert into LIEUX values (  'CHATEAU LAFITTE'                ) ;
+    insert into LIEUX values (  'GRAND AMPHI'                    ) ;
+    insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
+    insert into LIEUX values (  'RUE '                           ) ;
 
 -- EVENEMENTS
     ev_gala       := creer_evenement( TO_DATE('2017-09-10' , 'yyyy-mm-dd') , 'Contenu 1'             , gala      , 'CHATEAU LAFITTE' , 'Gala '                                  , 10000 , 65 , 0, TO_DATE('2018-11-23', 'yyyy-mm-dd') , NULL , NULL);
@@ -197,29 +198,29 @@ insert into LIEUX values (  'RUE '                           ) ;
     News3 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 3' , bds , sahar      , 'Contenu de la news 3');
 
 -- ORGANISATEURS
-insert into ORGANISATEURS values ( yann       , ev_accueil    );
-insert into ORGANISATEURS values ( sara       , ev_accueil    );
-insert into ORGANISATEURS values ( mohammedAm , ev_soireeNoel );
+    insert into ORGANISATEURS values ( yann       , ev_accueil    );
+    insert into ORGANISATEURS values ( sara       , ev_accueil    );
+    insert into ORGANISATEURS values ( mohammedAm , ev_soireeNoel );
 -- PARTIPATIONS
-insert into PARTICIPATIONS values ( mohammedEl , ev_accueil , null);
-insert into PARTICIPATIONS values ( mohammedAm , ev_accueil ,   10);
-insert into PARTICIPATIONS values ( harry      , ev_accueil ,   20);
-insert into PARTICIPATIONS values ( ron        , ev_accueil ,   3 );
-insert into PARTICIPATIONS values ( sahar      , ev_gala    ,   5 );
-insert into PARTICIPATIONS values ( mohammedAm , ev_gala    ,   3 );
-insert into PARTICIPATIONS values ( lilia      , ev_gala    ,   9 );
+    insert into PARTICIPATIONS values ( mohammedEl , ev_accueil , null);
+    insert into PARTICIPATIONS values ( mohammedAm , ev_accueil ,   10);
+    insert into PARTICIPATIONS values ( harry      , ev_accueil ,   20);
+    insert into PARTICIPATIONS values ( ron        , ev_accueil ,   3 );
+    insert into PARTICIPATIONS values ( sahar      , ev_gala    ,   5 );
+    insert into PARTICIPATIONS values ( mohammedAm , ev_gala    ,   3 );
+    insert into PARTICIPATIONS values ( lilia      , ev_gala    ,   9 );
 
 -- COMMENTAIRES
-insert into COMMENTAIRES values ( 1, sahar , News1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu'      );
-insert into COMMENTAIRES values ( 2, yann  , News2, TO_DATE('2017-10-23', 'yyyy-mm-dd'),'salut lenseirb');
+    com1 := faire_commenter(sahar , News1, TO_DATE('2017-09-22 07:02', 'yyyy-mm-dd hh:mi'),'coucouuu'      );
+    com2 := faire_commenter(yann  , News2, TO_DATE('2017-10-23 12:40', 'yyyy-mm-dd hh:mi'),'salut lenseirb');
 
 -- SOURCES_FINANCEMENT
-insert into SOURCES_FINANCEMENT values ('Cotisations'    );
-insert into SOURCES_FINANCEMENT values ('banques'        );
-insert into SOURCES_FINANCEMENT values ('Vente de repas' );
+    insert into SOURCES_FINANCEMENT values ('Cotisations'    );
+    insert into SOURCES_FINANCEMENT values ('banques'        );
+    insert into SOURCES_FINANCEMENT values ('Vente de repas' );
 
--- financements
-insert into FINANCEMENTS values (gcc, 'Cotisations');
+-- FINANCEMENTS
+     insert into FINANCEMENTS values (gcc, 'Cotisations');
 
 end;
 /

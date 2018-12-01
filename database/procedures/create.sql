@@ -5,3 +5,4 @@
 @procedures/creer_objectif/create
 @procedures/creer_news/create
 @procedures/creer_evenement/create
+@procedures/faire_commenter/create
