@@ -190,9 +190,9 @@ insert into EVENEMENTS values ( 3 , spaceeirb , 'GRAND AMPHI'     ,  'Un grand d
 insert into EVENEMENTS values ( 4 , bda       , 'GRAND AMPHI'     , 'After de Noel '                         ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
 
 -- NEWS 
-insert into NEWS values ( 5 , gcc , sahar      , 'News 1');
-insert into NEWS values ( 6 , bda , mohammedAm , 'News 2');
-insert into NEWS values ( 7 , bds , sahar      , 'News 3');
+insert into NEWS values ( 5005 , gcc , sahar      , 'News 1');
+insert into NEWS values ( 5006 , bda , mohammedAm , 'News 2');
+insert into NEWS values ( 5007 , bds , sahar      , 'News 3');
 
 -- ORGANISATEURS
 insert into ORGANISATEURS values ( yann       , 3 );
