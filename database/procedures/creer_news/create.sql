@@ -7,7 +7,7 @@
 -- =                           ID_ADHERENT_MEMBRE_NEWS,              = 
 -- =                           TEXTE_NEWS) from dual                 =
 -- = Résumé ==========================================================
--- = Créer une news avec le données spécifiés.                       =
+-- = Créer une news avec les données spécifiées.                       =
 -- = Renvoie l'identifiant de la news créée.                         =
 -- ===================================================================
 prompt [Création fonction creer_news];

@@ -70,6 +70,11 @@ declare
     News1         number;
     News2         number;
     News3         number;
+  -- Evenements
+    ev_gala       number;
+    ev_soireeNoel number;
+    ev_accueil    number;
+    ev_afterNoel  number;
     
 begin
 -- ASSOCIATIONS
@@ -150,19 +155,19 @@ insert into ADHERENTS values (  mohammedAm ,  'mhamdini'    , 'polieu'   , 'moha
 insert into ADHERENTS values (  sophie     ,  'sdupont'     , 'sd1695'   , 'spohie.dupont@outlook.com'   , 2020 , 'ELECTRONIQUE'     ) ;
   
  -- ADHESIONS
-faire_adherer(  gcc       , sahar       , TO_DATE('2017-09-12', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  clubee    , mohammedEl  , TO_DATE('2017-09-23', 'yyyy-mm-dd'), 1  ) ;
-faire_adherer(  bda       , mohammedAm  , TO_DATE('2017-11-06', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  bde       , lilia       , TO_DATE('2017-12-12', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  solideirb , sahar       , TO_DATE('2017-10-02', 'yyyy-mm-dd'), 1  ) ;
-faire_adherer(  bds       , sahar       , TO_DATE('2017-09-13', 'yyyy-mm-dd'), 1  ) ;
-faire_adherer(  spaceeirb , yann        , TO_DATE('2017-06-05', 'yyyy-mm-dd'), 1  ) ;
-faire_adherer(  ekip_bar  , yann        , TO_DATE('2017-12-19', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  spaceeirb , sophie      , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  spaceeirb , sara        , TO_DATE('2017-09-15', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  aei       , sahar       , TO_DATE('2017-09-16', 'yyyy-mm-dd'), 1  ) ;
-faire_adherer(  pixeirb   , sophie      , TO_DATE('2017-09-20', 'yyyy-mm-dd'), 0  ) ;
-faire_adherer(  spaceeirb , lilia       , TO_DATE('2016-10-14', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  gcc       , sahar       , TO_DATE('2017-09-12', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  clubee    , mohammedEl  , TO_DATE('2017-09-23', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  bda       , mohammedAm  , TO_DATE('2017-11-06', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  bde       , lilia       , TO_DATE('2017-12-12', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  solideirb , sahar       , TO_DATE('2017-10-02', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  bds       , sahar       , TO_DATE('2017-09-13', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  spaceeirb , yann        , TO_DATE('2017-06-05', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  ekip_bar  , yann        , TO_DATE('2017-12-19', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  spaceeirb , sophie      , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  spaceeirb , sara        , TO_DATE('2017-09-15', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  aei       , sahar       , TO_DATE('2017-09-16', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  pixeirb   , sophie      , TO_DATE('2017-09-20', 'yyyy-mm-dd'), 0  ) ;
+    insert into ADHESIONS values (  spaceeirb , lilia       , TO_DATE('2016-10-14', 'yyyy-mm-dd'), 1  ) ;
 
 
 -- BUREAUX
@@ -180,17 +185,11 @@ insert into LIEUX values (  'GRAND AMPHI'                    ) ;
 insert into LIEUX values (  'JARDIN PUBLIC'                  ) ;
 insert into LIEUX values (  'RUE '                           ) ;
 
--- CONTENUS
-insert into CONTENUS values ( 1 , TO_DATE('2017-09-10' , 'yyyy-mm-dd') , 'Contenu 1'            );
-insert into CONTENUS values ( 2 , TO_DATE('2017-09-15' , 'yyyy-mm-dd') , 'Contenu 2'            );
-insert into CONTENUS values ( 3 , TO_DATE('2017-09-12' , 'yyyy-mm-dd') ,  'Accueil des entrants');
-insert into CONTENUS values ( 4 , TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'Contenu 3'            );
-
 -- EVENEMENTS
-insert into EVENEMENTS values ( 1 , gala      , 'CHATEAU LAFITTE' , 'Gala '                                  , 10000 , 65 , 0, TO_DATE('2018-11-23', 'yyyy-mm-dd') , NULL , NULL);
-insert into EVENEMENTS values ( 2 , bda       , 'GRAND AMPHI'     , 'Soiree Noel '                           ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
-insert into EVENEMENTS values ( 3 , spaceeirb , 'GRAND AMPHI'     ,  'Un grand discours pour peu de choses.' ,    20 ,  1 , 4, TO_DATE('2017-10-02', 'yyyy-mm-dd') , NULL , NULL);
-insert into EVENEMENTS values ( 4 , bda       , 'GRAND AMPHI'     , 'After de Noel '                         ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
+    ev_gala       := creer_evenement( TO_DATE('2017-09-10' , 'yyyy-mm-dd') , 'Contenu 1'             , gala      , 'CHATEAU LAFITTE' , 'Gala '                                  , 10000 , 65 , 0, TO_DATE('2018-11-23', 'yyyy-mm-dd') , NULL , NULL);
+    ev_soireeNoel := creer_evenement( TO_DATE('2017-09-15' , 'yyyy-mm-dd') , 'Contenu 2'             , bda       , 'GRAND AMPHI'     , 'Soiree Noel '                           ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
+    ev_accueil    := creer_evenement( TO_DATE('2017-09-12' , 'yyyy-mm-dd') ,  'Accueil des entrants' , spaceeirb , 'GRAND AMPHI'     ,  'Un grand discours pour peu de choses.' ,    20 ,  1 , 4, TO_DATE('2017-10-02', 'yyyy-mm-dd') , NULL , NULL);
+    ev_afterNoel  := creer_evenement( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'Contenu 3'             , bda       , 'GRAND AMPHI'     , 'After de Noel '                         ,  1000 ,  0 , 0, TO_DATE('2018-12-20', 'yyyy-mm-dd') , NULL , NULL);
 
 -- NEWS 
     News1 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 1' , gcc , sahar      , 'Contenu de la news 1');
@@ -198,17 +197,17 @@ insert into EVENEMENTS values ( 4 , bda       , 'GRAND AMPHI'     , 'After de No
     News3 :=creer_news( TO_DATE('2017-12-26' , 'yyyy-mm-dd') , 'news 3' , bds , sahar      , 'Contenu de la news 3');
 
 -- ORGANISATEURS
-insert into ORGANISATEURS values ( yann       , 3 );
-insert into ORGANISATEURS values ( sara       , 3 );
-insert into ORGANISATEURS values ( mohammedAm , 2 );
+insert into ORGANISATEURS values ( yann       , ev_accueil    );
+insert into ORGANISATEURS values ( sara       , ev_accueil    );
+insert into ORGANISATEURS values ( mohammedAm , ev_soireeNoel );
 -- PARTIPATIONS
-insert into PARTICIPATIONS values ( mohammedEl , 3 , null);
-insert into PARTICIPATIONS values ( mohammedAm , 3 ,   10);
-insert into PARTICIPATIONS values ( harry      , 3 ,   20);
-insert into PARTICIPATIONS values ( ron        , 3 ,   3 );
-insert into PARTICIPATIONS values ( sahar      , 1 ,   5 );
-insert into PARTICIPATIONS values ( mohammedAm , 1 ,   3 );
-insert into PARTICIPATIONS values ( lilia      , 1 ,   9 );
+insert into PARTICIPATIONS values ( mohammedEl , ev_accueil , null);
+insert into PARTICIPATIONS values ( mohammedAm , ev_accueil ,   10);
+insert into PARTICIPATIONS values ( harry      , ev_accueil ,   20);
+insert into PARTICIPATIONS values ( ron        , ev_accueil ,   3 );
+insert into PARTICIPATIONS values ( sahar      , ev_gala    ,   5 );
+insert into PARTICIPATIONS values ( mohammedAm , ev_gala    ,   3 );
+insert into PARTICIPATIONS values ( lilia      , ev_gala    ,   9 );
 
 -- COMMENTAIRES
 insert into COMMENTAIRES values ( 1, sahar , News1, TO_DATE('2017-09-22', 'yyyy-mm-dd'),'coucouuu'      );
