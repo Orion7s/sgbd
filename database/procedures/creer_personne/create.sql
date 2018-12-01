@@ -4,7 +4,7 @@
 -- = USAGE : select creer_personne(nom, prenom) from dual            =
 -- = Résumé ==========================================================
 -- = Créer une personne avec le nom et le prénom spécifié.           =
--- = Renvoie l'identifiant de la personne crée.                      =
+-- = Renvoie l'identifiant de la personne créée.                     =
 -- ===================================================================
 prompt [Création fonction creer_personne];
 create function creer_personne

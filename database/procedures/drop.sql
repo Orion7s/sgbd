@@ -3,3 +3,4 @@
 @procedures/creer_personne/drop
 @procedures/faire_adherer/drop
 @procedures/creer_association/drop
+@procedures/creer_objectif/drop

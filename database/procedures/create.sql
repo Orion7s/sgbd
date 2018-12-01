@@ -3,3 +3,4 @@
 @procedures/creer_personne/create
 @procedures/faire_adherer/create
 @procedures/creer_association/create
+@procedures/creer_objectif/create

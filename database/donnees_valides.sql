@@ -40,6 +40,20 @@ declare
     spaceeirb     number;
     ekip_bar      number;
     gala          number;
+  -- Objectifs
+    integration   number;
+    federation    number;
+    pousserArt    number;
+    pousserSport  number;
+    cohesion      number;
+    collecteDon   number;
+    contruction   number;
+    gestionBar    number;
+    creationJeux  number;
+    contactBoites number;
+    faireRap      number;
+    faireSport    number;
+    prendrePhotos number;
   -- Personnes
     sahar         number;
     yann          number;
@@ -70,37 +84,37 @@ begin
 
 -- OBJECTIFS
 
-   insert into OBJECTIFS values (  1 , 'Intégrer les élèves étrangers.'                                ) ;
-   insert into OBJECTIFS values (  2 , 'Féderer les élèves de l ecole.'                                ) ;
-   insert into OBJECTIFS values (  3 , 'Mettre en avant l art et la musique.'                          ) ;
-   insert into OBJECTIFS values (  4 , 'Mettre en avant les activités sportives.'                      ) ;
-   insert into OBJECTIFS values (  5 , 'Améliorer la cohesion sociale.'                                ) ;
-   insert into OBJECTIFS values (  6 , 'Collecter des dons à destination d\'' autres associations.'    ) ;
-   insert into OBJECTIFS values (  7 , 'Mener des projets de construction des drones.'                 ) ;
-   insert into OBJECTIFS values (  8 , 'Gerer le Bar de l ecole.'                                      ) ;
-   insert into OBJECTIFS values (  9 , 'Creation de jeux.'                                             ) ;
-   insert into OBJECTIFS values ( 10 , 'Contacter le plus d entreprises possible.'                     ) ;
-   insert into OBJECTIFS values ( 11 , 'Faire du rap.'                                                 ) ;
-   insert into OBJECTIFS values ( 12 , 'Faire du sport et organiser des tournois.'                     ) ;
-   insert into OBJECTIFS values ( 13 , 'Prendre des photos.'                                           ) ;
+    integration   := creer_objectif( 'Intégrer les élèves étrangers.'                                ) ;
+    federation    := creer_objectif( 'Féderer les élèves de l ecole.'                                ) ;
+    pousserArt    := creer_objectif( 'Mettre en avant l art et la musique.'                          ) ;
+    pousserSport  := creer_objectif( 'Mettre en avant les activités sportives.'                      ) ;
+    cohesion      := creer_objectif( 'Améliorer la cohesion sociale.'                                ) ;
+    collecteDon   := creer_objectif( 'Collecter des dons à destination d\'' autres associations.'    ) ;
+    contruction   := creer_objectif( 'Mener des projets de construction des drones.'                 ) ;
+    gestionBar    := creer_objectif( 'Gerer le Bar de l ecole.'                                      ) ;
+    creationJeux  := creer_objectif( 'Creation de jeux.'                                             ) ;
+    contactBoites := creer_objectif( 'Contacter le plus d entreprises possible.'                     ) ;
+    faireRap      := creer_objectif( 'Faire du rap.'                                                 ) ;
+    faireSport    := creer_objectif( 'Faire du sport et organiser des tournois.'                     ) ;
+    prendrePhotos := creer_objectif( 'Prendre des photos.'                                           ) ;
 
 
 
 -- POURSUITES
-   insert into POURSUITES values (  gcc       ,  2   ) ;
-   insert into POURSUITES values (  gcc       ,  9   ) ;
-   insert into POURSUITES values (  clubee    ,  1   ) ;
-   insert into POURSUITES values (  bda       ,  3   ) ;
-   insert into POURSUITES values (  bde       ,  2   ) ;
-   insert into POURSUITES values (  bds       ,  4   ) ;
-   insert into POURSUITES values (  bds       ,  12  ) ;
-   insert into POURSUITES values (  solideirb ,  5   ) ;
-   insert into POURSUITES values (  solideirb ,  6   ) ;
-   insert into POURSUITES values (  pixeirb   ,  13  ) ;
-   insert into POURSUITES values (  aei       ,  10  ) ;
-   insert into POURSUITES values (  rapeirb   ,  11  ) ;
-   insert into POURSUITES values (  spaceeirb ,  7   ) ;
-   insert into POURSUITES values (  ekip_bar  ,  8   ) ;
+   insert into POURSUITES values (  gcc       ,  federation     ) ;
+   insert into POURSUITES values (  gcc       ,  creationJeux   ) ;
+   insert into POURSUITES values (  clubee    ,  integration    ) ;
+   insert into POURSUITES values (  bda       ,  pousserArt     ) ;
+   insert into POURSUITES values (  bde       ,  federation     ) ;
+   insert into POURSUITES values (  bds       ,  pousserSport   ) ;
+   insert into POURSUITES values (  bds       ,  faireSport     ) ;
+   insert into POURSUITES values (  solideirb ,  cohesion       ) ;
+   insert into POURSUITES values (  solideirb ,  collecteDon    ) ;
+   insert into POURSUITES values (  pixeirb   ,  prendrePhotos  ) ;
+   insert into POURSUITES values (  aei       ,  contactBoites  ) ;
+   insert into POURSUITES values (  rapeirb   ,  faireRap       ) ;
+   insert into POURSUITES values (  spaceeirb ,  contruction    ) ;
+   insert into POURSUITES values (  ekip_bar  ,  gestionBar     ) ;
 
 -- PERSONNES
     sahar      := creer_personne(  'MAGHRAOUI'  , 'SAHAR'            ) ;

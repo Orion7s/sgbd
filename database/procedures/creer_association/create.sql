@@ -4,7 +4,7 @@
 -- = USAGE : select creer_association(nom) from dual                 =
 -- = Résumé ==========================================================
 -- = Créer une association avec le nom spécifié.                     =
--- = Renvoie l'identifiant de l'association crée.                    =
+-- = Renvoie l'identifiant de l'association créée.                   =
 -- ===================================================================
 prompt [Création fonction creer_association];
 create function creer_association

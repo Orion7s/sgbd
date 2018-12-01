@@ -4,13 +4,15 @@
 drop sequence   sq_id_objectifs;
 drop sequence   sq_id_associations;
 drop sequence   sq_id_personnes;
-drop sequence   sq_id_contenus;
+drop sequence   sq_id_evenements;
+drop sequence   sq_id_news;
 drop sequence   sq_id_commentaires;
 -- TODO : Trigger de remplacement automatique à l'insertion ir OBJECTIFS, ASSOCIATIONS, PERSONNES, CONTENUS, COMMENTAIRES
 create sequence sq_id_objectifs order nocycle minvalue 0 maxvalue 999;
 create sequence sq_id_associations order nocycle minvalue 0 maxvalue 999;
 create sequence sq_id_personnes order nocycle minvalue 0 maxvalue 999;
-create sequence sq_id_contenus order nocycle minvalue 0 maxvalue 999;
+create sequence sq_id_evenements order nocycle minvalue 0 maxvalue 4999;
+create sequence sq_id_news order nocycle minvalue 5000 maxvalue 9999;
 create sequence sq_id_commentaires order nocycle minvalue 0 maxvalue 99999;
 
 create or replace trigger objectifs_set_id
@@ -46,16 +48,27 @@ create or replace trigger personnes_set_id
 /
 show errors trigger personnes_set_id;
 
-create or replace trigger contenus_set_id
+create or replace trigger evenements_set_id
     before insert on CONTENUS
     for each row when (new.ID_CONTENU is null)
     begin
-        select sq_id_contenus.nextval
+        select sq_id_evenements.nextval
         into :new.ID_CONTENU
         from dual;
     end;
 /
-show errors trigger contenus_set_id;
+show errors trigger evenements_set_id;
+
+create or replace trigger news_set_id
+    before insert on CONTENUS
+    for each row when (new.ID_CONTENU is null)
+    begin
+        select sq_id_news.nextval
+        into :new.ID_CONTENU
+        from dual;
+    end;
+/
+show errors trigger news_set_id;
 
 create or replace trigger commentaires_set_id
     before insert on COMMENTAIRES
