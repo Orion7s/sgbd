@@ -10,3 +10,8 @@ create table BUREAUX
     constraint fk1_bureaux   foreign key (ID_ASSOCIATION_MEMBRE) references ASSOCIATIONS (ID_ASSOCIATION),
     constraint fk2_bureaux   foreign key (ID_ADHERENT_MEMBRE) references ADHERENTS (ID_ADHERENT) 
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'BUREAUX');
+end;
+/

@@ -1,1 +1,0 @@
-drop function creer_personne;

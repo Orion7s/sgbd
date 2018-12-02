@@ -10,3 +10,8 @@ create table POURSUITES
     constraint fk2_poursuites foreign key (ID_OBJECTIF_POURSUIVI) references OBJECTIFS (ID_OBJECTIF)
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (POURSUIVRE->ASSOCATION, POURSUIVRE->OBJECTIF)--
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'POURSUITES');
+end;
+/

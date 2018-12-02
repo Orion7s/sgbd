@@ -8,3 +8,8 @@ create table CONTENUS
     TITRE_CONTENU                   CHAR(60)               not null,
     constraint pk_contenus primary key (ID_CONTENU)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'CONTENUS');
+end;
+/

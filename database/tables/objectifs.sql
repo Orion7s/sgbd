@@ -7,3 +7,8 @@ create table OBJECTIFS
     DESCRIPTION_OBJECTIF            CHAR(255)              not null,
     constraint pk_objectifs primary key (ID_OBJECTIF)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'OBJECTIFS');
+end;
+/

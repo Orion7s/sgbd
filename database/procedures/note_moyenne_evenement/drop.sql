@@ -1,1 +1,0 @@
-drop function note_moyenne_evenement;

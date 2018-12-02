@@ -11,3 +11,8 @@ create table PARTICIPATIONS
     constraint fk2_participations foreign key (ID_EVENEMENT_PARTICIPE) references EVENEMENTS (ID_EVENEMENT),
     constraint ch_participations check (NOTE between 0 and 10)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'PARTICIPATIONS');
+end;
+/

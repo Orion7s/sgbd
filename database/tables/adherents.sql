@@ -15,3 +15,8 @@ create table ADHERENTS
     constraint un_adherents unique (A_LOGIN)
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (ADHESIONS->ADHERENTS)--
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'ADHERENTS');
+end;
+/

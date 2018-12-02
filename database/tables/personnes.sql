@@ -8,3 +8,8 @@ create table PERSONNES
     P_PRENOM                        CHAR(60)               not null,
     constraint pk_personnes primary key (ID_PERSONNE)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'PERSONNES');
+end;
+/

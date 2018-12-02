@@ -9,3 +9,8 @@ create table FINANCEMENTS
     constraint fk1_financements foreign key (ID_ASSOCIATION_FINANCEE) references ASSOCIATIONS (ID_ASSOCIATION),
     constraint fk2_financements foreign key (NOM_SOURCE_FINANCANT) references SOURCES_FINANCEMENT (NOM_SOURCE_FINANCEMENT)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'FINANCEMENTS');
+end;
+/

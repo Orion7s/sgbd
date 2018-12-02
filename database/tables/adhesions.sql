@@ -11,3 +11,8 @@ create table ADHESIONS
     constraint fk1_adhesions foreign key (ID_ASSOCIATION_ADHEREE) references ASSOCIATIONS (ID_ASSOCIATION),
     constraint fk2_adhesions foreign key (ID_ADHERENT_ADHERANT) references ADHERENTS (ID_ADHERENT)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'ADHESIONS');
+end;
+/

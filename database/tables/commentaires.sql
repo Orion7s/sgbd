@@ -12,3 +12,8 @@ create table COMMENTAIRES
     constraint fk1_commentaires foreign key (ID_ADHERENT_COMMENTANT) references ADHERENTS (ID_ADHERENT),
     constraint fk2_commentaires foreign key (ID_CONTENU_COMMENTE) references CONTENUS (ID_CONTENU)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'COMMENTAIRES');
+end;
+/

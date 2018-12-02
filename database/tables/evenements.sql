@@ -22,3 +22,8 @@ create table EVENEMENTS
     constraint ch1_evenements check ((DATE_FIN_RECURRENCE_EVENEMENT is null) or (not FREQUENCE is null)),
     constraint ch2_evenements check (ID_EVENEMENT between 0 and 4999) 
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'EVENEMENTS');
+end;
+/

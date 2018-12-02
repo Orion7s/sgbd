@@ -10,3 +10,8 @@ create table ORGANISATEURS
     constraint fk1_organisateurs foreign key (ID_ADHERENT_ORGANISATEUR) references ADHERENTS (ID_ADHERENT),
     constraint fk2_organisateurs foreign key (ID_EVENEMENT_ORGANISE) references EVENEMENTS (ID_EVENEMENT)
 );
+-- Déclaration des objets créés
+begin
+    register_object('table', 'ORGANISATEURS');
+end;
+/
