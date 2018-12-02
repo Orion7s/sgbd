@@ -10,3 +10,6 @@
 @procedures/maj/maj_bureau
 @procedures/maj/maj_adherent
 @procedures/maj/maj_evenement
+@procedures/del/del_adherent
+@procedures/del/del_association
+@procedures/del/del_evenement
