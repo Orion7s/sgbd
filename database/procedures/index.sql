@@ -9,3 +9,4 @@
 @procedures/maj/maj_association
 @procedures/maj/maj_bureau
 @procedures/maj/maj_adherent
+@procedures/maj/maj_evenement

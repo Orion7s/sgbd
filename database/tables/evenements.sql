@@ -25,8 +25,24 @@ create table EVENEMENTS
     constraint ch1_evenements check ((DATE_FIN_RECURRENCE_EVENEMENT is null) or (not FREQUENCE is null)),
     constraint ch2_evenements check (ID_EVENEMENT between 0 and 4999) 
 );
+CREATE TRIGGER evenements_roc
+  BEFORE UPDATE ON EVENEMENTS  
+  FOR EACH ROW
+DECLARE
+BEGIN
+  IF( :new.ID_EVENEMENT != :old.ID_EVENEMENT )
+  THEN
+    RAISE_APPLICATION_ERROR( -20001, 'Modification du champ ID_EVENEMENT impossible.' );
+  END IF;
+  IF( :new.ID_ASSOCIATION_HOTE != :old.ID_ASSOCIATION_HOTE )
+  THEN
+    RAISE_APPLICATION_ERROR( -20001, 'Modification du champ ID_ASSOCIATION_HOTE impossible.' );
+  END IF;
+END;
+/
 -- Déclaration des objets créés
 begin
     register_object('table', 'EVENEMENTS');
+    register_object('trigger', 'evenements_roc');
 end;
 /
