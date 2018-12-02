@@ -17,8 +17,24 @@ create table ADHERENTS
     constraint un_adherents unique (A_LOGIN)
     -- TODO : AJOUTER UNE CONTRAINTE POUR LA CARDINALITÉ MINIMALE (ADHESIONS->ADHERENTS)--
 );
+CREATE TRIGGER adherents_roc
+  BEFORE UPDATE ON ASSOCIATIONS  
+  FOR EACH ROW
+DECLARE
+BEGIN
+  IF( :new.ID_ADHERENT != :old.ID_ADHERENT )
+  THEN
+    RAISE_APPLICATION_ERROR( -20001, 'Modification du champ ID_ADHERENT impossible.' );
+  END IF;
+  IF( :new.A_LOGIN != :old.A_LOGIN )
+  THEN
+    RAISE_APPLICATION_ERROR( -20001, 'Modification du champ A_LOGIN impossible.' );
+  END IF;
+END;
+/
 -- Déclaration des objets créés
 begin
     register_object('table', 'ADHERENTS');
+    register_object('trigger', 'adherents_roc');
 end;
 /

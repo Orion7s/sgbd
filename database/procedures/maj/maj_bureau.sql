@@ -1,10 +1,10 @@
 
 -- ===================================================================
--- = Procédure : maj_bureau                                     =
--- = USAGE : begin maj_bureau(id, nom); end;                    =
+-- = Procédure : maj_bureau                                          =
+-- = USAGE : begin maj_bureau(id_asso, id_adherent, role); end;      =
 -- = Résumé ==========================================================
--- = Met à une association dont l'id est spécifié avec les données   =
--- = fournies                                                        =
+-- = Met à jour un bureau dont la clé (id_asso, id_adherent) est     =
+-- = spécifiée avec les données fournies.                            =                                                        =
 -- ===================================================================
 prompt [Création fonction maj_bureau];
 create procedure maj_bureau

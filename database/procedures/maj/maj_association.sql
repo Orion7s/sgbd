@@ -3,8 +3,8 @@
 -- = Procédure : maj_association                                     =
 -- = USAGE : begin maj_association(id, nom); end;                    =
 -- = Résumé ==========================================================
--- = Met à une association dont l'id est spécifié avec les données   =
--- = fournies                                                        =
+-- = Met à jour une association dont l'id est spécifié avec les      =
+-- données fournies.                                                 =
 -- ===================================================================
 prompt [Création fonction maj_association];
 create procedure maj_association
