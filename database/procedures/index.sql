@@ -6,3 +6,4 @@
 @procedures/creation/creer_news
 @procedures/creation/creer_evenement
 @procedures/creation/faire_commenter
+@procedures/maj/maj_association
