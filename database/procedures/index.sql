@@ -7,3 +7,4 @@
 @procedures/creation/creer_evenement
 @procedures/creation/faire_commenter
 @procedures/maj/maj_association
+@procedures/maj/maj_bureau
