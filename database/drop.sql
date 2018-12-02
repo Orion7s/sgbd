@@ -1,9 +1,3 @@
---@procedures/drop
---@queries/drop
---@views/drop
---@tables/drop
---@settings/drop
-
 declare
     dropstatement VARCHAR2(100);
 begin
@@ -14,9 +8,8 @@ begin
         end if;
         execute immediate dropstatement;
     END LOOP;
+    execute immediate 'drop procedure register_object';
+    execute immediate 'drop table ASSOCIATIONS_DB_ITEMS cascade constraints';
+    execute immediate 'drop sequence sq_db_item_id';
 end;
 /
-
-drop procedure register_object;
-drop table ASSOCIATIONS_DB_ITEMS cascade constraints;
-drop sequence sq_db_item_id;

@@ -9,8 +9,10 @@ create table COMMENTAIRES
     DATE_PUBLICATION_COMENTAIRE     DATE                   not null,
     TEXTE_COMMENTAIRE               CHAR(255)              not null,
     constraint pk_commentaire primary key (ID_COMMENTAIRE)         ,
-    constraint fk1_commentaires foreign key (ID_ADHERENT_COMMENTANT) references ADHERENTS (ID_ADHERENT),
-    constraint fk2_commentaires foreign key (ID_CONTENU_COMMENTE) references CONTENUS (ID_CONTENU)
+    constraint fk1_commentaires foreign key (ID_ADHERENT_COMMENTANT) 
+      references ADHERENTS (ID_ADHERENT) on delete cascade,
+    constraint fk2_commentaires foreign key (ID_CONTENU_COMMENTE) 
+      references CONTENUS (ID_CONTENU) on delete cascade
 );
 -- Déclaration des objets créés
 begin

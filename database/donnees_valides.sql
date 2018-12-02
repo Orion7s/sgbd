@@ -2,24 +2,7 @@
 --    suppression des donnees
 -- ============================================================
 
-delete from ORGANISATEURS;
-delete from PARTICIPATIONS;
-delete from EVENEMENTS;
-delete from NEWS;
-delete from COMMENTAIRES;
-delete from CONTENUS;
-delete from BUREAUX;
-delete from ADHESIONS;
-delete from ADHERENTS;
-delete from PERSONNES;
-delete from POURSUITES;
-delete from FINANCEMENTS;
-delete from ASSOCIATIONS;
-delete from OBJECTIFS;
-delete from SOURCES_FINANCEMENT;
-delete from FILIERES;
-delete from LIEUX;
-
+@delete
 
 commit ;
 
