@@ -140,19 +140,19 @@ begin
     insert into ADHERENTS values (  sophie     ,  'sdupont'     , 'sd1695'   , 'spohie.dupont@outlook.com'   , 2020 , 'ELECTRONIQUE'     ) ;
   
  -- ADHESIONS
-    insert into ADHESIONS values (  gcc       , sahar       , TO_DATE('2017-09-12', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  clubee    , mohammedEl  , TO_DATE('2017-09-23', 'yyyy-mm-dd'), 1  ) ;
-    insert into ADHESIONS values (  bda       , mohammedAm  , TO_DATE('2017-11-06', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  bde       , lilia       , TO_DATE('2017-12-12', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  solideirb , sahar       , TO_DATE('2017-10-02', 'yyyy-mm-dd'), 1  ) ;
-    insert into ADHESIONS values (  bds       , sahar       , TO_DATE('2017-09-13', 'yyyy-mm-dd'), 1  ) ;
-    insert into ADHESIONS values (  spaceeirb , yann        , TO_DATE('2017-06-05', 'yyyy-mm-dd'), 1  ) ;
-    insert into ADHESIONS values (  ekip_bar  , yann        , TO_DATE('2017-12-19', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  spaceeirb , sophie      , TO_DATE('2017-10-10', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  spaceeirb , sara        , TO_DATE('2017-09-15', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  aei       , sahar       , TO_DATE('2017-09-16', 'yyyy-mm-dd'), 1  ) ;
-    insert into ADHESIONS values (  pixeirb   , sophie      , TO_DATE('2017-09-20', 'yyyy-mm-dd'), 0  ) ;
-    insert into ADHESIONS values (  spaceeirb , lilia       , TO_DATE('2016-10-14', 'yyyy-mm-dd'), 1  ) ;
+    insert into ADHESIONS values (  gcc       , sahar       , TO_DATE('2017-09-12', 'yyyy-mm-dd'), TO_DATE('2017-09-12', 'yyyy-mm-dd'), 10 ) ;
+    insert into ADHESIONS values (  clubee    , mohammedEl  , TO_DATE('2017-09-23', 'yyyy-mm-dd'), TO_DATE('2017-09-23', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  bda       , mohammedAm  , TO_DATE('2017-11-06', 'yyyy-mm-dd'), TO_DATE('2017-11-06', 'yyyy-mm-dd'), 20 ) ;
+    insert into ADHESIONS values (  bde       , lilia       , TO_DATE('2017-12-12', 'yyyy-mm-dd'), TO_DATE('2017-12-12', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  solideirb , sahar       , TO_DATE('2017-10-02', 'yyyy-mm-dd'), TO_DATE('2017-10-02', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  bds       , sahar       , TO_DATE('2017-09-13', 'yyyy-mm-dd'), TO_DATE('2017-09-13', 'yyyy-mm-dd'), 18 ) ;
+    insert into ADHESIONS values (  spaceeirb , yann        , TO_DATE('2017-06-05', 'yyyy-mm-dd'), TO_DATE('2017-06-05', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  ekip_bar  , yann        , TO_DATE('2017-12-19', 'yyyy-mm-dd'), TO_DATE('2017-12-19', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  spaceeirb , sophie      , TO_DATE('2017-10-10', 'yyyy-mm-dd'), TO_DATE('2017-10-10', 'yyyy-mm-dd'),  5 ) ;
+    insert into ADHESIONS values (  spaceeirb , sara        , TO_DATE('2017-09-15', 'yyyy-mm-dd'), TO_DATE('2017-09-15', 'yyyy-mm-dd'), 20 ) ;
+    insert into ADHESIONS values (  aei       , sahar       , TO_DATE('2017-09-16', 'yyyy-mm-dd'), TO_DATE('2017-09-16', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  pixeirb   , sophie      , TO_DATE('2017-09-20', 'yyyy-mm-dd'), TO_DATE('2017-09-20', 'yyyy-mm-dd'), 15 ) ;
+    insert into ADHESIONS values (  spaceeirb , lilia       , TO_DATE('2016-10-14', 'yyyy-mm-dd'), TO_DATE('2016-10-14', 'yyyy-mm-dd'), 15 ) ;
 
 
 -- BUREAUX
@@ -199,11 +199,12 @@ begin
 
 -- SOURCES_FINANCEMENT
     insert into SOURCES_FINANCEMENT values ('Cotisations'    );
-    insert into SOURCES_FINANCEMENT values ('banques'        );
+    insert into SOURCES_FINANCEMENT values ('CNC Inno'       );
     insert into SOURCES_FINANCEMENT values ('Vente de repas' );
 
 -- FINANCEMENTS
-     insert into FINANCEMENTS values (gcc, 'Cotisations');
+     insert into FINANCEMENTS values (gcc, 'CNC Inno'      , 1500, TO_DATE('2017-10-23', 'yyyy-mm-dd'));
+     insert into FINANCEMENTS values (gcc, 'Vente de repas',  400, TO_DATE('2017-10-15', 'yyyy-mm-dd'));
 
 end;
 /

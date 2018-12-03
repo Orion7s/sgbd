@@ -25,7 +25,6 @@ begin
                                                           
         execute immediate
         'select ' || p_seq_name || '.nextval from dual' INTO l_val;
-        DBMS_OUTPUT.PUT_LINE(l_val || ' ' || l_min);
 
         execute immediate
         'alter sequence ' || p_seq_name || ' increment by 1 minvalue ' || l_min;

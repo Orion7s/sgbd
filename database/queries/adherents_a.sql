@@ -19,7 +19,8 @@ CREATE TYPE rt__adherents_a AS OBJECT
     P_NOM                           CHAR(60) ,
     P_PRENOM                        CHAR(60) ,
     DATE_ADHESION                   DATE     ,
-    COTISATION_REGLEE_ADHESION      NUMBER(1)
+    DATE_REGLEMENT_COTISATION       DATE     ,
+    MONTANT_COTISATION_REGLEE       NUMBER(3)
 );
 /
 -- Déclaration du type de retour
@@ -39,7 +40,9 @@ begin
     end if;
     debut_annee := TO_DATE(annee_date||'-'||dbsettings.adhesion_date_debut, 'yyyy-mm-dd');
     fin_annee := TO_DATE(annee_date+1||'-'||dbsettings.adhesion_date_fin, 'yyyy-mm-dd');
-  FOR r IN (SELECT ADHERENTS.*, P_NOM, P_PRENOM, DATE_ADHESION, COTISATION_REGLEE_ADHESION from ADHESIONS
+  FOR r IN (SELECT ADHERENTS.*, P_NOM, P_PRENOM, 
+                   DATE_ADHESION, DATE_REGLEMENT_COTISATION, MONTANT_COTISATION_REGLEE
+            from ADHESIONS
             inner join ADHERENTS on ID_ADHERENT = ID_ADHERENT_ADHERANT
             inner join PERSONNES on ID_PERSONNE = ID_ADHERENT
             where (DATE_ADHESION between debut_annee and fin_annee)
@@ -48,7 +51,8 @@ begin
     PIPE ROW(rt__adherents_a(r.ID_ADHERENT, r.A_LOGIN, r.A_MOT_DE_PASSE,
                                  r.A_EMAIL, r.A_PROMOTION, r.A_FILIERE,
                                  r.P_NOM, r.P_PRENOM, r.DATE_ADHESION, 
-                                 r.COTISATION_REGLEE_ADHESION));
+                                 r.DATE_REGLEMENT_COTISATION,
+                                 r.MONTANT_COTISATION_REGLEE));
   END LOOP;
 end;
 /
