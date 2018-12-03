@@ -6,9 +6,6 @@
 
 
 
-show errors package dbsettings;
-
--- TODO : Moyenne des commentaires donnés par chaque adhérents pour une news.
 @drop
 
 create sequence sq_db_item_id order nocycle minvalue 0 maxvalue 99;
