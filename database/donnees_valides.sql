@@ -61,6 +61,7 @@ declare
   -- Commentaires
     com1          number;
     com2          number;
+    com3          number;
 begin
 -- ASSOCIATIONS
 
@@ -196,6 +197,7 @@ begin
 -- COMMENTAIRES
     com1 := faire_commenter(sahar , News1, TO_DATE('2017-09-22 07:02', 'yyyy-mm-dd hh:mi'),'coucouuu'      );
     com2 := faire_commenter(yann  , News2, TO_DATE('2017-10-23 12:40', 'yyyy-mm-dd hh:mi'),'salut lenseirb');
+    com3 := faire_commenter(sahar , News2, TO_DATE('2017-10-23 12:45', 'yyyy-mm-dd hh:mi'),'sympa'      );
 
 -- SOURCES_FINANCEMENT
     insert into SOURCES_FINANCEMENT values ('Cotisations'    );
