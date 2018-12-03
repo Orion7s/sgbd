@@ -23,7 +23,7 @@ create procedure register_object
  name ASSOCIATIONS_DB_ITEMS.OBJECT_NAME%type)
 AS
 begin
-    INSERT INTO ASSOCIATIONS_DB_ITEMS VALUES (sq_db_item_id.nextval, type, name);
+    INSERT INTO ASSOCIATIONS_DB_ITEMS VALUES (sq_db_item_id.nextval, type, UPPER(name));
 end;
 /
 show errors procedure register_object;
@@ -32,11 +32,10 @@ show errors procedure register_object;
 @settings/create
 @settings
 @tables/index
-@sequences
+@sequences/create
 @views/index
 @queries/index
 @procedures/index
-
 
 --@cascadeDeleteTriggers
 --@draft

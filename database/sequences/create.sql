@@ -8,6 +8,41 @@ create sequence sq_id_evenements order nocycle minvalue 0 maxvalue 4999;
 create sequence sq_id_news order nocycle minvalue 5000 maxvalue 9999;
 create sequence sq_id_commentaires order nocycle minvalue 0 maxvalue 99999;
 
+create procedure reset_seq( p_seq_name in varchar2 ) -- Inspiré de https://asktom.oracle.com/pls/apex/asktom.search?tag=how-to-reset-sequences
+is
+    l_val number;
+    l_min number;
+begin
+    SELECT min_value INTO l_min from all_sequences 
+    where sequence_owner = user and sequence_name = p_seq_name;
+    execute immediate
+    'select ' || p_seq_name || '.nextval from dual' INTO l_val;
+
+    if (l_val - l_min) > 0 then
+        execute immediate
+        'alter sequence ' || p_seq_name || ' increment by ' || (l_min - l_val) || 
+                                                          ' minvalue ' || l_min;
+                                                          
+        execute immediate
+        'select ' || p_seq_name || '.nextval from dual' INTO l_val;
+        DBMS_OUTPUT.PUT_LINE(l_val || ' ' || l_min);
+
+        execute immediate
+        'alter sequence ' || p_seq_name || ' increment by 1 minvalue ' || l_min;
+    end if;
+end;
+/
+show errors procedure reset_seq;
+create procedure reset_all_seq
+is
+begin
+    FOR obj IN (SELECT * FROM ASSOCIATIONS_DB_ITEMS where OBJECT_TYPE='sequence' order by ID desc) LOOP
+        reset_seq(obj.OBJECT_NAME);
+    END LOOP;
+end;
+/
+show errors procedure reset_all_seq;
+
 create trigger objectifs_set_id
     before insert on OBJECTIFS
     for each row when (new.ID_OBJECTIF is null)
@@ -82,11 +117,13 @@ begin
     register_object('sequence', 'sq_id_evenements');
     register_object('sequence', 'sq_id_news');
     register_object('sequence', 'sq_id_commentaires');
+    register_object('procedure', 'reset_seq');
+    register_object('procedure', 'reset_all_seq');
     register_object('trigger', 'objectifs_set_id');
     register_object('trigger', 'associations_set_id');
     register_object('trigger', 'personnes_set_id');
     register_object('trigger', 'evenements_set_id');
     register_object('trigger', 'news_set_id');
-    register_object('trigger', 'commentaires_set_id');
+    register_object('trigger', 'commentaires_set_id');    
 end;
 /

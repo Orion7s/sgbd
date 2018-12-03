@@ -13,3 +13,4 @@ begin
     execute immediate 'drop sequence sq_db_item_id';
 end;
 /
+prompt [Database Droped];

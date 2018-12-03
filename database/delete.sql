@@ -7,3 +7,4 @@ begin
     END LOOP;
 end;
 /
+@sequences/reset
